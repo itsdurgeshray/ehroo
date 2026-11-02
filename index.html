@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>See If You Qualify | Ehroo</title>
+<meta name="description" content="Ehroo builds organic sales channels for B2B companies: search, AI answers and communities that book qualified sales calls every week. See if you qualify.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter+Tight:wght@300..700&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+  if (/[?&]figma\b/.test(location.search)) document.documentElement.classList.add('figma');
+</script>
+<style>
+:root{
+  --navy: oklch(28.61% .1195 261.19);
+  --navy-ink:#0B1B3F;
+  --blue: oklch(51.38% .2161 261.96);
+  --blue-2:#0072F3;
+  --lime: oklch(94.79% .2068 117.81);
+  --lime-2:#E0EF18;
+  --pale:#EFF5FF;
+  --pale-2:#F4F6FF;
+  --line:#D6E2F7;
+  --line-2:#C8D8F6;
+  --muted:#5B6474;
+  --font-heading:"Bricolage Grotesque", sans-serif;
+  --font-body:"Inter Tight", sans-serif;
+  --wrap:1200px;
+  --gutter:24px;
+  --sec:112px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:#fff;color:var(--navy);font-family:var(--font-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+i,em,address{font-style:normal}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg.ic{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Type ---------- */
+.h1,.h2{font-family:var(--font-heading);font-weight:400;color:var(--navy);letter-spacing:-.05em}
+.h1{font-size:clamp(40px,5.6vw,76px);line-height:1.06}
+.h2{font-size:clamp(32px,3.6vw,48px);line-height:1.1}
+.h1 b,.h2 b{font-weight:700;color:var(--blue)}
+.eyebrow{font-family:var(--font-heading);font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--blue)}
+.lede{font-size:17px;color:var(--navy);max-width:620px}
+.sec{padding:var(--sec) 0;position:relative}
+.sec-pale{background:var(--pale)}
+.head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin-bottom:52px}
+.head .lede{margin:0 auto}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+.head-row>div{display:flex;flex-direction:column;gap:14px;max-width:640px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-heading);font-weight:500;font-size:16px;color:#000;background:#fff;border:2px solid #000;border-radius:12px;padding:16px 30px;box-shadow:4px 4px 0 #000;transition:transform .15s ease,box-shadow .15s ease;white-space:nowrap}
+.btn:hover{transform:scale(1.02)}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #000}
+.btn-lime{background:var(--lime)}
+.btn-xl{font-size:19px;padding:20px 40px;border-radius:14px;box-shadow:5px 5px 0 #000}
+.btn-sm{font-size:14px;padding:11px 18px;border-radius:10px;box-shadow:3px 3px 0 #000}
+.btn svg.ic{width:18px;height:18px}
+.link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:500;font-size:15px;color:var(--blue)}
+.link svg.ic{width:16px;height:16px;transition:transform .2s}
+.link:hover svg.ic{transform:translateX(3px)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--blue);background:var(--pale);border:1px solid #C9DAFB;border-radius:999px;padding:7px 16px}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.chip{display:inline-flex;align-items:center;font-size:12px;font-weight:500;color:var(--navy);background:var(--pale);border:1px solid #D3E0F7;border-radius:8px;padding:4px 10px;white-space:nowrap}
+.cta-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;font-size:13px;color:var(--muted)}
+.cta-meta span{display:inline-flex;align-items:center;gap:6px}
+.cta-meta svg.ic{width:15px;height:15px;color:var(--blue)}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:14px;z-index:40;margin-top:14px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid #E6ECF7;border-radius:18px;padding:10px 10px 10px 22px;box-shadow:0 8px 30px rgba(19,89,224,.06)}
+.nav-in img{height:28px;width:auto}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:72px 0 96px;overflow:hidden}
+.hero .dither,.hero .dither-img{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero .h1{max-width:1040px;margin:22px 0 0}
+.hero-sub{font-size:18px;max-width:640px;margin-top:20px}
+.points{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;max-width:1000px;margin:36px 0 0;text-align:left}
+.point{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line-2);border-radius:16px;padding:18px 18px}
+.point .n{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:var(--lime);border:1.5px solid #000;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:600;font-size:14px;color:#000}
+.point strong{display:block;font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:-.02em;color:var(--navy-ink);line-height:1.25}
+.point span{display:block;font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.4}
+.vsl{position:relative;width:100%;max-width:1000px;margin:44px auto 0}
+/* Ehroo hero dither (brand SVG): square grid on a #0072F3 to #F5FAFF gradient; its band starts just above the video like ehroo.com */
+.hero-dither{--dw:max(122vw,1100px);position:absolute;left:50%;top:calc(var(--dw) * -.3056 + 30px);-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%);width:var(--dw);max-width:none;height:auto;transform:translateX(-50%);z-index:-1;pointer-events:none;user-select:none}
+.player{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;border:2px solid var(--blue);box-shadow:8px 8px 0 var(--blue);background:#0B1B3F}
+.player>img{width:100%;height:100%;object-fit:cover}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,27,63,0) 45%,rgba(11,27,63,.78) 100%)}
+.play-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:14px}
+.play{position:relative;width:104px;height:104px;display:block}
+.play::after{content:"";position:absolute;inset:7px 0 0 7px;border-radius:50%;background:#000}
+.play>span{position:absolute;inset:0 7px 7px 0;z-index:1;border-radius:50%;background:var(--lime);border:2px solid #000;display:flex;align-items:center;justify-content:center;transition:transform .15s ease}
+.play svg{width:34px;height:34px;margin-left:5px;fill:#000}
+.play-btn:hover .play>span{transform:translate(3px,3px)}
+.play-btn:active .play>span{transform:translate(7px,7px)}
+.play-tag{font-family:var(--font-heading);font-weight:500;font-size:15px;background:#fff;border:1.5px solid #000;border-radius:999px;padding:7px 16px;color:#000}
+.player .by{position:absolute;left:24px;bottom:20px;display:flex;align-items:center;gap:12px;color:#fff;text-align:left}
+.player .by img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid #fff;background:#5D97FF}
+.player .by strong{display:block;font-family:var(--font-heading);font-weight:500;font-size:16px}
+.player .by span{font-size:13px;opacity:.85}
+.player.playing .shade,.player.playing .play-btn,.player.playing .by{display:none}
+.hero-cta{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:44px}
+
+/* ---------- Logos ---------- */
+.logos{padding:56px 0 8px}
+.logos p{text-align:center;font-family:var(--font-heading);font-size:20px;letter-spacing:-.02em;margin-bottom:28px}
+.logos p b{color:var(--blue);font-weight:700}
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:72px;width:max-content;align-items:center;animation:scroll 46s linear infinite}
+.track img{height:30px;width:auto;max-width:170px;object-fit:contain}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- Videos ---------- */
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.vid{display:flex;flex-direction:column;text-align:left;background:#fff;border:1px solid var(--blue);border-radius:18px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.vid:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--blue)}
+.vid .th{position:relative;aspect-ratio:16/9;background:var(--pale)}
+.vid .th img{width:100%;height:100%;object-fit:cover}
+.vid .th .mini{position:absolute;left:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:var(--lime);border:2px solid #000;box-shadow:3px 3px 0 #000;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.vid .th .mini svg{width:20px;height:20px;margin-left:3px;fill:#000}
+.vid:hover .th .mini{transform:scale(1.06)}
+.vid .num{position:absolute;right:12px;top:12px;font-family:var(--font-heading);font-weight:600;font-size:13px;background:#fff;color:var(--blue);border:1px solid var(--blue);border-radius:8px;padding:3px 9px}
+.vid .tx{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.vid h3{font-family:var(--font-heading);font-weight:500;font-size:20px;line-height:1.25;letter-spacing:-.03em;color:var(--navy-ink)}
+.vid p{font-size:14px;color:var(--muted)}
+.vid .watch{margin-top:auto;padding-top:6px}
+.yt-row{display:flex;justify-content:center;margin-top:36px}
+
+/* ---------- Carousels (case studies, testimonials) ---------- */
+.car{display:grid;grid-auto-flow:column;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain}
+.car::-webkit-scrollbar{display:none}
+.car>*{scroll-snap-align:start}
+.car-nav{display:flex;justify-content:center;gap:16px;margin-top:40px}
+.car-btn{width:72px;height:72px;border-radius:14px;background:var(--pale-2);border:1px solid #E1E9F8;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:background .15s,opacity .15s}
+.car-btn svg.ic{width:22px;height:22px}
+.car-btn:hover:not(:disabled){background:var(--lime);border-color:#000;color:#000}
+.car-btn:disabled{opacity:.4;cursor:default}
+
+/* ---------- Case studies (ehroo.com card) ---------- */
+.cs-track{grid-auto-columns:calc((100% - 56px) / 3);gap:28px;padding:4px 8px 14px 2px}
+.cs{display:flex;flex-direction:column;background:#fff;border:1px solid var(--blue);border-radius:16px;box-shadow:6px 6px 0 var(--blue);padding:16px 16px 0;min-width:0}
+.cs-tag{align-self:flex-start;font-size:15px;color:#4A5B78;background:#E8F0FE;border-radius:8px;padding:5px 10px}
+.cs h3{font-family:var(--font-heading);font-weight:500;font-size:30px;line-height:1.25;letter-spacing:-.03em;color:var(--blue);margin-top:14px;min-height:2.5em}
+.cs-sub{font-size:12.5px;letter-spacing:.06em;color:#5B6474;margin-top:8px}
+.cs-shot{position:relative;display:block;margin-top:16px;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:var(--pale)}
+.cs-shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cs-shot .btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:14px 30px}
+.cs-shot .btn:hover{transform:translate(-50%,-50%) scale(1.03)}
+.cs:hover .cs-shot img{transform:scale(1.04)}
+.cs-ex{font-size:15px;line-height:1.6;color:#4A5B78;margin-top:26px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.cs-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0 16px;margin-top:auto}
+.flag{display:inline-flex;align-items:center;gap:8px;font-size:17px;color:#4A5B78;border:1px solid #CFD6E2;border-radius:8px;padding:6px 10px}
+.flag img{width:24px;height:16px;object-fit:cover;border-radius:2px}
+.cs-foot .link{font-size:16px}
+
+/* ---------- Testimonials (ehroo.com card) ---------- */
+.t-track{grid-auto-columns:min(700px,84%);gap:48px;padding:8px 10px 14px 2px}
+.t-slide{position:relative;padding-left:100px;display:flex;align-items:stretch}
+.t-face{position:absolute;left:0;top:50%;transform:translateY(-50%);width:184px;height:184px;border-radius:50%;border:1px solid var(--blue);overflow:hidden;background:#fff;z-index:1}
+.t-face img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.t-face.is-video .mini{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:var(--lime);border:2px solid #000;box-shadow:4px 4px 0 #000;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-face.is-video .mini svg{width:20px;height:20px;margin-left:3px;fill:#000}
+.t-face.is-video:hover .mini{transform:translate(-50%,-50%) scale(1.08)}
+.t-card{flex:1;display:flex;flex-direction:column;gap:28px;background:#EEF4FF;border:1px solid var(--blue);border-radius:24px;box-shadow:4px 4px 0 var(--blue);padding:40px 48px 34px 112px;min-height:344px}
+.t-card blockquote{font-size:18px;line-height:1.55;color:var(--navy)}
+.t-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:auto}
+.t-foot strong{display:block;font-family:var(--font-heading);font-weight:500;font-size:20px;color:var(--navy-ink);letter-spacing:-.02em}
+.t-foot span{font-size:15px;color:#7A8499}
+.t-foot img{height:28px;width:auto;max-width:180px;object-fit:contain}
+
+/* ---------- Mid CTA ---------- */
+.band{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.band .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:32px;padding-top:56px;padding-bottom:56px;flex-wrap:wrap}
+.band .h2{color:#fff;max-width:640px}
+.band .h2 b{color:var(--lime)}
+.band .dither,.band .dither-img{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.band .cta-meta{color:#DCE8FF;justify-content:flex-start}
+.band .cta-meta svg.ic{color:var(--lime)}
+.band-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+
+/* ---------- Partners ---------- */
+.partners{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--line-2);border-radius:20px;overflow:hidden;background:#fff}
+.partner{display:flex;align-items:center;justify-content:center;padding:34px 22px;border-right:1px solid var(--line);min-height:120px}
+.partner:last-child{border-right:0}
+.partner img{max-height:34px;max-width:100%;width:auto;object-fit:contain;filter:grayscale(1);opacity:.85;transition:filter .2s,opacity .2s}
+.partner:hover img{filter:none;opacity:1}
+.partner.tall img{max-height:46px}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.faq-side{position:sticky;top:120px;display:flex;flex-direction:column;gap:18px}
+.faq-side p{font-size:15px}
+.acc{border-top:1px solid var(--line-2)}
+.qa{border-bottom:1px solid var(--line-2)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;text-align:left;font-family:var(--font-heading);font-size:19px;letter-spacing:-.02em;color:var(--navy)}
+.qa .pm{width:32px;height:32px;flex-shrink:0;border-radius:50%;border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;color:var(--blue);transition:transform .25s,background .2s}
+.qa .pm svg.ic{width:14px;height:14px}
+.qa button[aria-expanded=true] .pm{transform:rotate(45deg);background:var(--lime);border-color:#000;color:#000}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{padding:0 48px 22px 0;font-size:15px;color:#33405A}
+.qa button[aria-expanded=true]+.ans{grid-template-rows:1fr}
+
+/* ---------- Final CTA ---------- */
+.final{padding:24px 0 var(--sec)}
+.final-box{position:relative;overflow:hidden;border:1px solid var(--blue);border-radius:26px;box-shadow:6px 6px 0 var(--blue);background:linear-gradient(180deg,#F7FAFF,#EAF2FF);padding:96px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px}
+.final-box .dither,.final-box .dither-img{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.final-box>*:not(.dither):not(.dither-img){position:relative;z-index:1}
+.final-box .h2{max-width:760px}
+.final-box .lede{text-align:center}
+.final-box .cta-meta span{background:rgba(255,255,255,.88);border:1px solid #D3E0F7;border-radius:999px;padding:5px 12px}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);padding:40px 0 48px;font-size:13px;color:var(--muted)}
+.f-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.f-row img{height:26px;width:auto}
+.f-links{display:flex;gap:22px;flex-wrap:wrap}
+.f-links a:hover{color:var(--blue)}
+.f-note{margin-top:24px;max-width:860px;line-height:1.6}
+
+/* ---------- Qualify modal ---------- */
+.qmodal{position:fixed;inset:0;z-index:100;background:rgba(6,20,52,.66);display:none;align-items:center;justify-content:center;padding:24px;overflow-y:auto}
+.qmodal.open{display:flex}
+.qcard{position:relative;width:min(640px,100%);background:#fff;border:2px solid #000;border-radius:22px;box-shadow:8px 8px 0 var(--blue);padding:32px;margin:auto}
+.qclose{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:10px;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--navy)}
+.qclose:hover{background:var(--pale)}
+.qhead{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-right:48px}
+.qhead img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:top;background:#5D97FF;border:1.5px solid var(--blue)}
+.qhead div{font-size:13px;color:var(--muted);line-height:1.35}
+.qhead strong{display:block;font-family:var(--font-heading);font-weight:500;font-size:15px;color:var(--navy)}
+.qprog{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);margin:18px 0 8px}
+.qprog b{color:var(--blue);font-weight:600}
+.qbar{height:6px;background:#E3EBF8;border-radius:6px;overflow:hidden}
+.qbar i{display:block;height:100%;width:20%;background:var(--blue);border-radius:6px;transition:width .35s ease}
+.qstep{display:none;margin-top:26px;border:0;min-width:0;padding:0}
+.qstep.on{display:block;animation:qin .3s ease}
+@keyframes qin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.qstep h3{font-family:var(--font-heading);font-weight:500;font-size:26px;letter-spacing:-.03em;line-height:1.2;color:var(--navy-ink);margin-bottom:6px}
+.qstep .hint{font-size:14px;color:var(--muted);margin-bottom:20px}
+.qopts{display:flex;flex-direction:column;gap:10px}
+.qopt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:15px 16px;border:1.5px dashed var(--blue);border-radius:14px;background:#fff;font-size:15px;font-weight:500;color:var(--navy);transition:background .15s,box-shadow .15s}
+.qopt .rd{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--blue);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.qopt:hover{background:var(--pale)}
+.qopt[aria-pressed=true]{background:var(--lime);border:2px solid #000;box-shadow:3px 3px 0 #000;color:#000}
+.qopt[aria-pressed=true] .rd{border-color:#000;background:#000}
+.qopt[aria-pressed=true] .rd::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.qfields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qfield{display:flex;flex-direction:column;gap:6px}
+.qfield.full{grid-column:1/-1}
+.qfield label{font-size:13px;font-weight:600;color:var(--navy)}
+.qfield label span{color:var(--muted);font-weight:400}
+.qfield input{font:inherit;font-size:15px;color:var(--navy-ink);padding:13px 14px;border:1.5px solid var(--line-2);border-radius:12px;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s}
+.qfield input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(19,89,224,.15)}
+.qfield input[aria-invalid=true]{border-color:#D93A3A}
+.qerr{font-size:13px;color:#C62828;margin-top:12px;min-height:18px}
+.qsubmit{width:100%;margin-top:18px}
+.qfoot{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:12px}
+.qback{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--navy);padding:10px 14px;border:1px solid var(--line-2);border-radius:10px}
+.qback:disabled{opacity:.4;cursor:not-allowed}
+.qfoot small{font-size:12.5px;color:var(--muted)}
+.qprivacy{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);margin-top:14px}
+.qprivacy svg.ic{width:15px;height:15px;color:var(--blue)}
+.qdone{text-align:center;display:none;flex-direction:column;align-items:center;gap:14px;padding:12px 0 4px}
+.qdone.on{display:flex}
+.qdone .badge{width:64px;height:64px;border-radius:50%;background:var(--lime);border:2px solid #000;box-shadow:4px 4px 0 #000;display:flex;align-items:center;justify-content:center}
+.qdone .badge svg.ic{width:30px;height:30px;stroke-width:2.6;color:#000}
+.qdone h3{font-family:var(--font-heading);font-weight:500;font-size:28px;letter-spacing:-.03em;color:var(--navy-ink)}
+.qdone p{font-size:15px;max-width:440px}
+.qcard.finished .qprog,.qcard.finished .qbar,.qcard.finished .qfoot{display:none}
+
+/* ---------- Video modal ---------- */
+.vmodal{position:fixed;inset:0;z-index:110;background:rgba(6,20,52,.82);display:none;align-items:center;justify-content:center;padding:24px}
+.vmodal.open{display:flex}
+.vbox{width:min(1000px,100%);aspect-ratio:16/9;background:#000;border:2px solid #000;border-radius:18px;box-shadow:6px 6px 0 var(--lime);overflow:hidden}
+.vbox.vert{width:auto;height:min(86vh,820px);aspect-ratio:9/16}
+.vbox iframe{width:100%;height:100%;border:0;display:block}
+.vclose{position:absolute;top:20px;right:20px;width:46px;height:46px;border-radius:12px;background:var(--lime);border:2px solid #000;box-shadow:3px 3px 0 #000;display:flex;align-items:center;justify-content:center;color:#000}
+
+/* ---------- Reveal ---------- */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ---------- Figma static mode ---------- */
+.figma .rv,.js.figma .rv{opacity:1!important;transform:none!important;transition:none!important}
+.figma .track{animation:none}
+.figma .car{overflow:hidden}
+.figma .nav{position:relative}
+.figma .qmodal{position:static;display:block;background:var(--pale);padding:var(--sec) var(--gutter)}
+.figma .qmodal .qwrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:var(--wrap);margin:0 auto;align-items:start}
+.figma .qmodal .qcard{width:auto;margin:0}
+.figma .qstep{animation:none}
+.qwrap{display:contents}
+.qfig{display:none}
+.figma .qfig{display:block}
+
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .track{animation:none}
+  .qstep.on{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width:1024px){
+  :root{--sec:88px}
+  .point{padding:14px;gap:10px}
+  .point strong{font-size:15px}
+  .point span{font-size:12.5px}
+  .cs-track{grid-auto-columns:calc((100% - 28px) / 2)}
+  .t-track{grid-auto-columns:88%}
+  .partners{grid-template-columns:repeat(4,1fr)}
+  .partner{border-bottom:1px solid var(--line)}
+  .partner:nth-child(4n){border-right:0}
+  .partner:nth-last-child(-n+3){border-bottom:0}
+  .faq{grid-template-columns:1fr;gap:32px}
+  .faq-side{position:static}
+  .cs h3{font-size:26px}
+  .figma .qmodal .qwrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .vids{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 calc(-1 * var(--gutter));padding:4px var(--gutter) 14px;scrollbar-width:none}
+  .vids::-webkit-scrollbar{display:none}
+  .vid{flex:0 0 46%;scroll-snap-align:start}
+  .swipe-hint{display:flex!important}
+}
+.swipe-hint{display:none;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);margin-top:6px}
+.swipe-hint svg.ic{width:15px;height:15px;color:var(--blue)}
+
+/* ---------- Phone ---------- */
+@media (max-width:640px){
+  :root{--gutter:16px;--sec:72px}
+  .nav-in{padding:8px 8px 8px 16px;border-radius:14px}
+  .nav-in img{height:24px}
+  .nav .btn-sm{padding:9px 14px;font-size:13px}
+  .hero{padding:44px 0 64px}
+  .hero .h1{font-size:38px;line-height:1.08}
+  .hero-sub{font-size:16px;margin-top:16px}
+  .pill{font-size:12px;padding:6px 12px}
+  .points{grid-template-columns:1fr;margin-top:26px;gap:10px}
+  .point{padding:14px}
+  .point strong{font-size:16px}
+  .vsl{margin-top:30px}
+  .player{border-radius:16px;box-shadow:5px 5px 0 var(--blue)}
+  .play{width:76px;height:76px}
+  .play svg{width:26px;height:26px}
+  .play-tag{display:none}
+  .player .by{left:14px;bottom:12px}
+  .player .by img{width:36px;height:36px}
+  .player .by strong{font-size:14px}
+  .player .by span{font-size:11.5px}
+  .hero-cta{margin-top:32px;width:100%}
+  .hero-cta .btn{width:100%}
+  .btn-xl{font-size:18px;padding:18px 24px}
+  .head{margin-bottom:32px}
+  .head-row{margin-bottom:28px}
+  .logos{padding-top:40px}
+  .logos p{font-size:17px;padding:0 16px}
+  .track{gap:44px}
+  .track img{height:24px}
+  .vid{flex-basis:86%}
+  .vid h3{font-size:18px}
+  .cs-track,.t-track{margin:0 calc(-1 * var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter);scroll-padding-left:var(--gutter)}
+  .cs-track{grid-auto-columns:88%;gap:16px}
+  .cs{padding:14px 14px 0;box-shadow:5px 5px 0 var(--blue)}
+  .cs h3{font-size:24px}
+  .cs-ex{font-size:14px;margin-top:18px}
+  .flag{font-size:15px}
+  .t-track{grid-auto-columns:90%;gap:16px}
+  .t-slide{padding-left:0;padding-top:64px}
+  .t-face{left:20px;top:0;transform:none;width:128px;height:128px}
+  .t-face.is-video .mini{width:48px;height:48px}
+  .t-card{padding:80px 20px 22px;min-height:0;gap:20px;border-radius:20px}
+  .t-card blockquote{font-size:16px}
+  .t-foot{flex-direction:column;align-items:flex-start;gap:12px}
+  .t-foot img{height:22px}
+  .car-nav{margin-top:24px}
+  .car-btn{width:56px;height:56px}
+  .band .wrap{padding-top:44px;padding-bottom:44px}
+  .band-cta,.band-cta .btn{width:100%}
+  .partners{grid-template-columns:repeat(2,1fr)}
+  .partner{min-height:88px;padding:22px 16px;border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+  .partner:nth-child(2n){border-right:0!important}
+  .partner:last-child{grid-column:1/-1;border-bottom:0!important;border-right:0!important}
+  .partner img{max-height:26px}
+  .partner.tall img{max-height:36px}
+  .qa button{font-size:17px;padding:18px 0}
+  .qa .ans p{padding-right:8px}
+  .final-box{padding:64px 20px;border-radius:18px}
+  .final-box .btn{width:100%}
+  .qmodal{padding:0;align-items:stretch}
+  .qcard{width:100%;min-height:100%;border-radius:0;border:0;box-shadow:none;padding:24px 16px 32px}
+  .qstep h3{font-size:22px}
+  .qfields{grid-template-columns:1fr}
+  .vmodal{padding:12px}
+  .vbox.vert{height:auto;width:100%;max-height:80vh}
+  .figma .qmodal .qwrap{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-in">
+      <a href="https://ehroo.com/" aria-label="Ehroo home"><img src="assets/ehroo-logo.svg" alt="Ehroo" width="93" height="28"></a>
+      <button class="btn btn-lime btn-sm" data-qualify>See if you qualify</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="pill">For B2B SaaS, tech and manufacturing founders</span>
+    <h1 class="h1">Get found first on Google, ChatGPT and Reddit, then turn it into <b>booked sales calls</b></h1>
+    <p class="hero-sub">We build your organic sales channel end to end, so qualified buyers find you, trust you and book a call without paid ads or cold outreach.</p>
+
+    <ul class="points">
+      <li class="point">
+        <span class="n">1</span>
+        <div><strong>$3M+ pipeline in 6 months</strong><span>300+ qualified meetings for WeframeTech, with $0 spent on ads</span></div>
+      </li>
+      <li class="point">
+        <span class="n">2</span>
+        <div><strong>Cited in AI answers</strong><span>We make ChatGPT, Perplexity and Gemini recommend you by name</span></div>
+      </li>
+      <li class="point">
+        <span class="n">3</span>
+        <div><strong>Full refund if we miss</strong><span>We agree the target up front and put our fee behind it</span></div>
+      </li>
+    </ul>
+
+    <div class="vsl">
+      <img class="hero-dither" src="assets/hero-dither.svg" alt="" aria-hidden="true" width="1440" height="961">
+      <div class="player" id="mainPlayer">
+        <img src="assets/yt-SiRGHaL_yRY.jpg" alt="Drishti Kanoi explaining how Ehroo builds organic sales channels" width="1280" height="720">
+        <span class="shade"></span>
+        <button class="play-btn" data-inline-video="SiRGHaL_yRY" aria-label="Play video: how Ehroo builds your organic sales channel">
+          <span class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></span>
+          <span class="play-tag">Watch this first</span>
+        </button>
+        <div class="by">
+          <img src="assets/drishti.png" alt="" width="48" height="48">
+          <div><strong>Drishti Kanoi</strong><span>Founder &amp; CMO, Ehroo</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <button class="btn btn-lime btn-xl" data-qualify>See if you qualify
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <div class="cta-meta">
+        <span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Takes 60 seconds</span>
+        <span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>4 quick questions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLIENTS ===================== -->
+<section class="logos" aria-labelledby="clients-h">
+  <p id="clients-h">Trusted by the world's <b>fastest growing</b> companies</p>
+  <div class="marquee">
+    <div class="track">
+      <img src="assets/c-weframetech.png" alt="WeframeTech" width="347" height="61">
+      <img src="assets/c-smi.svg" alt="Steel Masters International" width="844" height="245">
+      <img src="assets/c-learnesy.png" alt="Learnesy" width="700" height="118">
+      <img src="assets/c-altima.svg" alt="AltimaCRM" width="168" height="29">
+      <img src="assets/c-confex.svg" alt="Confex" width="119" height="32">
+      <img src="assets/c-upsell.svg" alt="Upsell" width="185" height="37">
+      <img src="assets/c-luma.svg" alt="Luma" width="116" height="33">
+      <img src="assets/c-nyeon.png" alt="Nyeon Technologies" width="663" height="96">
+      <img src="assets/c-nordic.svg" alt="Nordic Stem Cells" width="259" height="32">
+      <img src="assets/c-dependable.svg" alt="Dependable Steel" width="966" height="287">
+      <img src="assets/c-slingshot.svg" alt="Slingshot" width="220" height="32">
+      <img src="assets/c-cerify.svg" alt="Cerify OS" width="150" height="31">
+      <img src="assets/c-weframetech.png" alt="" width="347" height="61" aria-hidden="true">
+      <img src="assets/c-smi.svg" alt="" width="844" height="245" aria-hidden="true">
+      <img src="assets/c-learnesy.png" alt="" width="700" height="118" aria-hidden="true">
+      <img src="assets/c-altima.svg" alt="" width="168" height="29" aria-hidden="true">
+      <img src="assets/c-confex.svg" alt="" width="119" height="32" aria-hidden="true">
+      <img src="assets/c-upsell.svg" alt="" width="185" height="37" aria-hidden="true">
+      <img src="assets/c-luma.svg" alt="" width="116" height="33" aria-hidden="true">
+      <img src="assets/c-nyeon.png" alt="" width="663" height="96" aria-hidden="true">
+      <img src="assets/c-nordic.svg" alt="" width="259" height="32" aria-hidden="true">
+      <img src="assets/c-dependable.svg" alt="" width="966" height="287" aria-hidden="true">
+      <img src="assets/c-slingshot.svg" alt="" width="220" height="32" aria-hidden="true">
+      <img src="assets/c-cerify.svg" alt="" width="150" height="31" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DRISHTI'S VIDEOS ===================== -->
+<section class="sec" id="videos">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Watch before your call</span>
+      <h2 class="h2">The playbook we use, <b>explained by Drishti</b></h2>
+      <p class="lede">Three breakdowns of how organic search, AI answers and community distribution turn into pipeline. Watch one, and our first call will start a step ahead.</p>
+    </div>
+    <div class="vids">
+      <button class="vid rv" data-video="Od1VyGIczi8" aria-label="Play video 1: How I generated $3 million in sales with ChatGPT and AI search">
+        <span class="th">
+          <img src="assets/yt-Od1VyGIczi8.jpg" alt="" width="1280" height="720">
+          <span class="num">01</span>
+          <span class="mini"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span>
+        </span>
+        <span class="tx">
+          <h3>How I generated $3 million in sales with ChatGPT and AI search</h3>
+          <p>The exact system behind WeframeTech's pipeline, step by step.</p>
+          <span class="link watch">Watch video <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </button>
+      <button class="vid rv" data-video="0-Ppy1wQcPA" aria-label="Play video 2: Copy the $100M ARR inbound strategy used by n8n, Figma, Miro, Notion and ClickUp">
+        <span class="th">
+          <img src="assets/yt-0-Ppy1wQcPA.jpg" alt="" width="1280" height="720">
+          <span class="num">02</span>
+          <span class="mini"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span>
+        </span>
+        <span class="tx">
+          <h3>Copy the $100M ARR inbound strategy used by n8n, Figma and Notion</h3>
+          <p>No ads, product-led and referral growth, broken down for B2B teams.</p>
+          <span class="link watch">Watch video <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </button>
+      <button class="vid rv" data-video="SF2vC_ymrcI" aria-label="Play video 3: Copy ClickUp's $30M a month organic marketing strategy">
+        <span class="th">
+          <img src="assets/yt-SF2vC_ymrcI.jpg" alt="" width="1280" height="720">
+          <span class="num">03</span>
+          <span class="mini"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span>
+        </span>
+        <span class="tx">
+          <h3>Copy ClickUp's $30M a month organic marketing strategy</h3>
+          <p>How a bootstrapped SaaS built an unstoppable organic engine.</p>
+          <span class="link watch">Watch video <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </button>
+    </div>
+    <p class="swipe-hint"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Swipe for more</p>
+    <div class="yt-row rv">
+      <a class="link" href="https://www.youtube.com/@drishtikanoi" target="_blank" rel="noopener">More on Drishti's YouTube channel <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDIES ===================== -->
+<section class="sec" id="case-studies">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Real clients. Real results.</span>
+      <h2 class="h2">Featured <b>case studies</b></h2>
+      <p class="lede">Here's what happens when the system goes live.</p>
+    </div>
+    <div class="cs-track car" id="csTrack">
+      <article class="cs rv">
+        <span class="cs-tag">B2B Technology Company</span>
+        <h3>$3M+ Sales Pipeline in 6 Months Without Ads</h3>
+        <span class="cs-sub">WeframeTech Case Study</span>
+        <a class="cs-shot" href="https://ehroo.com/case-studies" tabindex="-1"><img src="assets/cs-weframetech.jpg" alt="WeframeTech website" width="1000" height="562"><span class="btn btn-lime">Read Case Study</span></a>
+        <p class="cs-ex">Discover how we helped this B2B company book 300+ qualified meetings in 6 months, generate over $3 million in sales pipeline, build a fully inbound organic sales channel, and dominate AI search results.</p>
+        <div class="cs-foot"><span class="flag"><img src="assets/flag-in.png" alt="" width="40" height="30">India</span><a href="https://ehroo.com/case-studies" class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </article>
+      <article class="cs rv">
+        <span class="cs-tag">B2B SaaS</span>
+        <h3>Supademo's $3M+ ARR Growth Story</h3>
+        <span class="cs-sub">B2B SaaS Case Study</span>
+        <a class="cs-shot" href="https://ehroo.com/case-studies" tabindex="-1"><img src="assets/cs-supademo.jpg" alt="Supademo website" width="1000" height="562"><span class="btn btn-lime">Read Case Study</span></a>
+        <p class="cs-ex">Read how this SaaS company reached $3M+ ARR without spending on paid ads, building a fully inbound growth engine.</p>
+        <div class="cs-foot"><span class="flag"><img src="assets/flag-us.png" alt="" width="40" height="30">US</span><a href="https://ehroo.com/case-studies" class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </article>
+      <article class="cs rv">
+        <span class="cs-tag">B2B Technology Company</span>
+        <h3>Learnesy Case Study</h3>
+        <span class="cs-sub">B2B EdTech Company</span>
+        <a class="cs-shot" href="https://ehroo.com/case-studies" tabindex="-1"><img src="assets/cs-learnesy.jpg" alt="Learnesy website" width="1000" height="562"><span class="btn btn-lime">Read Case Study</span></a>
+        <p class="cs-ex">Read how we're helping a B2B EdTech company generate qualified inbound demand, increase customer lifetime value, and build a $150K to $300K+ annual sales pipeline through SEO and AI search visibility.</p>
+        <div class="cs-foot"><span class="flag"><img src="assets/flag-se.png" alt="" width="40" height="30">Sweden</span><a href="https://ehroo.com/case-studies" class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </article>
+      <article class="cs rv">
+        <span class="cs-tag">B2B Manufacturer</span>
+        <h3>$1M+ Pipeline for Steel Manufacturing</h3>
+        <span class="cs-sub">B2B Manufacturing Company</span>
+        <a class="cs-shot" href="https://ehroo.com/case-studies" tabindex="-1"><img src="assets/cs-smi.jpg" alt="Steel Masters International website" width="1000" height="562"><span class="btn btn-lime">Read Case Study</span></a>
+        <p class="cs-ex">See how we're helping Steel Masters International generate qualified inbound demand, expand into international markets, and create a $250K to $1M+ annual sales pipeline through SEO and AI search visibility.</p>
+        <div class="cs-foot"><span class="flag"><img src="assets/flag-ae.png" alt="" width="40" height="30">UAE</span><a href="https://ehroo.com/case-studies" class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </article>
+    </div>
+    <div class="car-nav rv">
+      <button class="car-btn" data-car="csTrack" data-dir="-1" aria-label="Previous case study" disabled><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+      <button class="car-btn" data-car="csTrack" data-dir="1" aria-label="Next case study"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="sec sec-pale" id="testimonials">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Testimonials</span>
+      <h2 class="h2">Hear from our <b>clients</b></h2>
+    </div>
+    <div class="t-track car" id="tTrack">
+      <figure class="t-slide rv">
+        <button class="t-face is-video" data-video="a7hQpQUNbdQ" data-vertical aria-label="Play Durgesh Ray's video testimonial"><img src="assets/yt-a7hQpQUNbdQ-v.jpg" alt="" width="405" height="720"><span class="mini"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></button>
+        <div class="t-card">
+          <blockquote>In just six months, Ehroo helped us generate 300+ qualified meetings and significantly grow our visibility across AI search platforms. Working with their team has been one of the best growth decisions we've made.</blockquote>
+          <figcaption class="t-foot"><div><strong>Durgesh Ray</strong><span>Head of Design, WeframeTech</span></div><img src="assets/c-weframetech.png" alt="WeframeTech" height="28"></figcaption>
+        </div>
+      </figure>
+      <figure class="t-slide rv">
+        <span class="t-face"><img src="assets/t-nikhil.png" alt="Nikhil Patel" width="240" height="240"></span>
+        <div class="t-card">
+          <blockquote>Ehroo has been a valuable growth partner for our business. Their marketing strategies helped us improve our online visibility, attract the right audience, and generate consistent results. If you're looking for a team that genuinely cares about your success, I highly recommend working with them.</blockquote>
+          <figcaption class="t-foot"><div><strong>Nikhil Patel</strong><span>CEO, Nyeon Technologies</span></div><img src="assets/c-nyeon.png" alt="Nyeon Technologies" height="28"></figcaption>
+        </div>
+      </figure>
+      <figure class="t-slide rv">
+        <button class="t-face is-video" data-video="no5yZ0KcOKk" data-vertical aria-label="Play Simrat Bhandari's video testimonial"><img src="assets/yt-no5yZ0KcOKk-v.jpg" alt="" width="405" height="720"><span class="mini"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></button>
+        <div class="t-card">
+          <blockquote>The team was professional, transparent, and easy to work with throughout our website and digital marketing revamp. Their expertise, clear communication, and valuable recommendations made the process seamless. I highly recommend their services.</blockquote>
+          <figcaption class="t-foot"><div><strong>Simrat Bhandari</strong><span>Head of Growth, Steel Masters International</span></div><img src="assets/c-smi.svg" alt="Steel Masters International" height="28"></figcaption>
+        </div>
+      </figure>
+      <figure class="t-slide rv">
+        <span class="t-face"><img src="assets/t-adam.jpg" alt="Adam Sebastian" width="240" height="240"></span>
+        <div class="t-card">
+          <blockquote>Ehroo played a key role in helping us refine our positioning, messaging, and conversion strategy. Through a series of strategic conversations and CRO initiatives, they helped us better communicate our value, improve customer journeys, and drive measurable business results. Their team is proactive, collaborative, and focused on outcomes.</blockquote>
+          <figcaption class="t-foot"><div><strong>Adam Sebastian</strong><span>CEO, Nordic Stem Cells</span></div><img src="assets/c-nordic.svg" alt="Nordic Stem Cells" height="28"></figcaption>
+        </div>
+      </figure>
+      <figure class="t-slide rv">
+        <span class="t-face"><img src="assets/t-eshwar.jpg" alt="Eshwar Mahadevan" width="240" height="240"></span>
+        <div class="t-card">
+          <blockquote>Ehroo combines creativity, strategy, and execution exceptionally well. Their team quickly understood our goals. They're reliable, proactive, and committed to delivering real business impact.</blockquote>
+          <figcaption class="t-foot"><div><strong>Eshwar Mahadevan</strong><span>Founder, OnWhitePaper</span></div><img src="assets/c-onwhitepaper.png" alt="OnWhitePaper" height="28"></figcaption>
+        </div>
+      </figure>
+    </div>
+    <div class="car-nav rv">
+      <button class="car-btn" data-car="tTrack" data-dir="-1" aria-label="Previous testimonial" disabled><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+      <button class="car-btn" data-car="tTrack" data-dir="1" aria-label="Next testimonial"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MID CTA ===================== -->
+<section class="band" aria-label="See if you qualify">
+  <canvas class="dither" data-field="band" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h2 class="h2 rv">Want results like these? <b>Check your fit</b> in 60 seconds</h2>
+    <div class="band-cta rv">
+      <button class="btn btn-lime btn-xl" data-qualify>See if you qualify
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <div class="cta-meta"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/></svg>Full refund if we miss the target</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECHNOLOGY PARTNERS ===================== -->
+<section class="sec" id="partners">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Technology partners</span>
+      <h2 class="h2">Built on the platforms <b>you already trust</b></h2>
+      <p class="lede">We are certified partners of the headless CMS and commerce platforms behind fast, search-first websites.</p>
+    </div>
+    <div class="partners rv">
+      <div class="partner"><img src="assets/p-sanity.png" alt="Sanity" width="366" height="138"></div>
+      <div class="partner"><img src="assets/p-strapi.png" alt="Strapi" width="919" height="245"></div>
+      <div class="partner"><img src="assets/p-directus.png" alt="Directus" width="765" height="162"></div>
+      <div class="partner"><img src="assets/p-builderio.png" alt="Builder.io" width="900" height="195"></div>
+      <div class="partner"><img src="assets/p-contentful.png" alt="Contentful" width="900" height="183"></div>
+      <div class="partner tall"><img src="assets/p-shopifyplus.png" alt="Shopify Plus" width="864" height="179"></div>
+      <div class="partner"><img src="assets/p-medusa.png" alt="Medusa" width="110" height="35"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="sec sec-pale" id="faq">
+  <div class="wrap faq">
+    <div class="faq-side rv">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h2">Still have a <b>question?</b></h2>
+      <p>Your market, your ICP, where the pipeline is leaking. We don't touch a single keyword until we know the whole picture.</p>
+      <div><button class="btn btn-lime btn-sm" data-qualify>See if you qualify</button></div>
+    </div>
+    <div class="acc rv">
+      <div class="qa">
+        <button aria-expanded="true" aria-controls="a1" id="q1">How long before I see results?<span class="pm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="a1" role="region" aria-labelledby="q1"><div><p>Most clients see leading signals, such as rankings, AI citations and engagement, within 6 to 10 weeks, and pipeline impact within 3 to 6 months. The exact timeline depends on your domain, your category and how quickly we can ship.</p></div></div>
+      </div>
+      <div class="qa">
+        <button aria-expanded="false" aria-controls="a2" id="q2">Do you work with early-stage companies?<span class="pm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="a2" role="region" aria-labelledby="q2"><div><p>Yes, if you already have a product that customers pay for. We usually start early-stage teams on positioning plus one or two channels, then expand once there is signal.</p></div></div>
+      </div>
+      <div class="qa">
+        <button aria-expanded="false" aria-controls="a3" id="q3">What does the refund guarantee cover?<span class="pm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="a3" role="region" aria-labelledby="q3"><div><p>We agree a measurable outcome and a timeline before we start. If we miss it, you get your fee back. The terms are written into the engagement, not hidden in fine print.</p></div></div>
+      </div>
+      <div class="qa">
+        <button aria-expanded="false" aria-controls="a4" id="q4">How is this different from an SEO agency?<span class="pm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="a4" role="region" aria-labelledby="q4"><div><p>SEO is one lever. We own the whole organic sales channel: positioning, content, SEO, AI search, community distribution, conversion and the website itself. We are measured on pipeline, not rankings.</p></div></div>
+      </div>
+      <div class="qa">
+        <button aria-expanded="false" aria-controls="a5" id="q5">What industries do you specialize in?<span class="pm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="a5" role="region" aria-labelledby="q5"><div><p>B2B SaaS, B2B technology, manufacturing, EdTech and healthcare. The common thread is a considered purchase, where buyers research before they talk to sales.</p></div></div>
+      </div>
+      <div class="qa">
+        <button aria-expanded="false" aria-controls="a6" id="q6">What happens after I fill in the form?<span class="pm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="a6" role="region" aria-labelledby="q6"><div><p>If you are a fit, you pick a time for a 30-minute strategy call straight away. Before the call we review your site, your search visibility and your competitors, so the conversation is about your numbers, not a pitch deck.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-box rv">
+      <canvas class="dither" data-field="cta" aria-hidden="true"></canvas>
+      <span class="pill">Limited new clients each quarter</span>
+      <h2 class="h2">Build an organic sales channel that drives <b>recurring revenue</b></h2>
+      <p class="lede">Answer four quick questions. If we are a fit, you will pick a time with our team on the next screen.</p>
+      <button class="btn btn-lime btn-xl" data-qualify>See if you qualify
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <div class="cta-meta">
+        <span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Takes 60 seconds</span>
+        <span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/></svg>Full refund if we miss</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-row">
+      <img src="assets/ehroo-logo.svg" alt="Ehroo" width="86" height="26">
+      <div class="f-links">
+        <a href="mailto:business@ehroo.com">business@ehroo.com</a>
+        <a href="tel:+918961597292">+91 89615 97292</a>
+        <a href="https://ehroo.com/privacy-policy">Privacy Policy</a>
+        <a href="https://ehroo.com/terms">Terms &amp; Conditions</a>
+      </div>
+    </div>
+    <p class="f-note">Results shown are from specific client engagements and vary by market, offer and starting point. © 2026 Ehroo. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ===================== QUALIFY MODAL ===================== -->
+<div class="qmodal" id="qmodal" role="dialog" aria-modal="true" aria-labelledby="qtitle">
+  <div class="qwrap">
+    <h2 class="h2 qfig" style="grid-column:1/-1;text-align:center;margin-bottom:8px">Qualification form <b>(opens on every CTA)</b></h2>
+    <form class="qcard" id="qform" novalidate>
+      <button type="button" class="qclose" data-qclose aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div class="qhead">
+        <img src="assets/drishti.png" alt="" width="40" height="40">
+        <div><strong id="qtitle">See if you qualify</strong>We take on a limited number of new clients each quarter.</div>
+      </div>
+      <div class="qprog"><span>Question <b id="qnum">1</b> of 5</span><span id="qpct">20%</span></div>
+      <div class="qbar"><i id="qbar"></i></div>
+
+      <fieldset class="qstep on" data-step="1">
+        <legend class="sr">Question 1</legend>
+        <h3>What describes you best?</h3>
+        <p class="hint">Pick the closest match.</p>
+        <div class="qopts" data-name="role">
+          <button type="button" class="qopt" aria-pressed="false" data-v="B2B SaaS founder or leader"><span class="rd"></span>B2B SaaS founder or leader</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="B2B services or agency owner"><span class="rd"></span>B2B services or agency owner</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="Manufacturing or industrial business"><span class="rd"></span>Manufacturing or industrial business</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="D2C or ecommerce brand"><span class="rd"></span>D2C or ecommerce brand</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="Something else"><span class="rd"></span>Something else</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="qstep" data-step="2">
+        <legend class="sr">Question 2</legend>
+        <h3>What is your biggest bottleneck right now?</h3>
+        <p class="hint">The one costing you the most pipeline.</p>
+        <div class="qopts" data-name="bottleneck">
+          <button type="button" class="qopt" aria-pressed="false" data-v="Not enough qualified inbound leads"><span class="rd"></span>Not enough qualified inbound leads</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="Invisible in ChatGPT and AI search"><span class="rd"></span>Invisible in ChatGPT and AI search</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="Too dependent on referrals or paid ads"><span class="rd"></span>Too dependent on referrals or paid ads</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="Traffic, but it does not convert"><span class="rd"></span>Traffic, but it does not convert</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="Website is slow or hard to update"><span class="rd"></span>Website is slow or hard to update</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="qstep" data-step="3">
+        <legend class="sr">Question 3</legend>
+        <h3>What is your current annual revenue?</h3>
+        <p class="hint">A rough range is fine.</p>
+        <div class="qopts" data-name="revenue">
+          <button type="button" class="qopt" aria-pressed="false" data-v="Pre-revenue"><span class="rd"></span>Pre-revenue</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="Under $500K"><span class="rd"></span>Under $500K</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="$500K to $2M"><span class="rd"></span>$500K to $2M</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="$2M to $10M"><span class="rd"></span>$2M to $10M</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="$10M+"><span class="rd"></span>$10M+</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="qstep" data-step="4">
+        <legend class="sr">Question 4</legend>
+        <h3>What can you invest in growth each month?</h3>
+        <p class="hint">Across content, SEO, distribution and your website.</p>
+        <div class="qopts" data-name="budget">
+          <button type="button" class="qopt" aria-pressed="false" data-v="Under $2K"><span class="rd"></span>Under $2K</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="$2K to $5K"><span class="rd"></span>$2K to $5K</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="$5K to $10K"><span class="rd"></span>$5K to $10K</button>
+          <button type="button" class="qopt" aria-pressed="false" data-v="$10K+"><span class="rd"></span>$10K+</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="qstep" data-step="5">
+        <legend class="sr">Contact details</legend>
+        <h3>Where should we send your availability?</h3>
+        <p class="hint">We review every submission before the call.</p>
+        <div class="qfields">
+          <div class="qfield"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="qfield"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="qfield"><label for="f-phone">Phone or WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="qfield"><label for="f-site">Company website</label><input id="f-site" name="website" type="url" inputmode="url" autocomplete="url" placeholder="yourcompany.com" required></div>
+        </div>
+        <p class="qerr" id="qerr" role="alert"></p>
+        <button type="submit" class="btn btn-lime qsubmit">See my availability
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="qprivacy"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Your details stay with Ehroo. No spam, ever.</p>
+      </fieldset>
+
+      <div class="qdone" id="qyes">
+        <span class="badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+        <h3>You look like a great fit</h3>
+        <p>Pick a time for a 30-minute strategy call. We will review your site and search visibility before we speak.</p>
+        <a href="#" class="btn btn-lime" id="qbook">Choose a time
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="qdone" id="qnot">
+        <span class="badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+        <h3>Thanks, we have your details</h3>
+        <p>Our team will review your answers and reply within one business day. Meanwhile, Drishti's videos are the fastest way to see how the system works.</p>
+        <a href="#videos" class="btn" data-qclose>Watch the videos</a>
+      </div>
+
+      <div class="qfoot">
+        <button type="button" class="qback" id="qback" disabled><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back</button>
+        <small id="qhint">Select an option to continue</small>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Video modal -->
+<div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="vclose" id="vclose" aria-label="Close video"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="vbox" id="vbox"></div>
+</div>
+
+<script>
+/* ---------- Config ---------- */
+// Booking link shown to qualified leads (Calendly, Cal.com, HubSpot meetings, etc.)
+const BOOKING_URL = 'https://ehroo.com/';
+// Optional: POST endpoint for leads (HubSpot form, Zapier/Make webhook, Sanity, etc.). Left empty, nothing is sent.
+const LEAD_ENDPOINT = '';
+
+const FIGMA = document.documentElement.classList.contains('figma');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s);
+
+/* ---------- Dither (ordered Bayer 8x8) ---------- */
+const BAYER = (() => {
+  let b = [[0]];
+  for (let n = 1; n < 8; n *= 2) {
+    const s = b.length, nb = Array.from({length: s * 2}, () => Array(s * 2));
+    for (let y = 0; y < s; y++) for (let x = 0; x < s; x++) {
+      const v = b[y][x] * 4;
+      nb[y][x] = v; nb[y][x + s] = v + 2; nb[y + s][x] = v + 3; nb[y + s][x + s] = v + 1;
+    }
+    b = nb;
+  }
+  return b.map(r => r.map(v => (v + .5) / 64));
+})();
+const clamp = v => v < 0 ? 0 : v > 1 ? 1 : v;
+const BLUES = ['#C9DCFF', '#9DC0FF', '#6FA1FF', '#3D7BF5', '#1359E0'];
+const FIELDS = {
+  hero: { cell: 11, gap: 2, colors: BLUES, anim: true,
+    f(x, y, t, W, H) {
+      // Pixel walls on both sides that stay clear of the copy, rising toward the video
+      const d = Math.abs(x - .5) * 2, mobile = W < 700;
+      const edge = mobile ? .5 : W < 1000 ? .8 : .66;
+      let v = mobile ? (1 - Math.abs(y - .6) / .11) * 1.5 - (1 - d) * .15 : (d - edge) / .3 + (y - .55) * 1.25;
+      v += .07 * Math.sin(x * 21 + t * .9) * Math.cos(y * 17 - t * .6);
+      return clamp(v);
+    } },
+  band: { cell: 12, gap: 2, colors: ['rgba(255,255,255,.05)', 'rgba(255,255,255,.1)', 'rgba(255,255,255,.17)', 'rgba(224,239,24,.35)'], anim: true,
+    f(x, y, t) { return clamp((x - .5) * 1.6 + (y - .5) * .4 + .08 * Math.sin(y * 14 + t * .7)); } },
+  cta: { cell: 10, gap: 2, colors: BLUES, anim: true,
+    f(x, y, t, W) {
+      const k = W < 700 ? .62 : 1;
+      const a = 1 - Math.hypot(x * 1.2, 1 - y) / (.42 * k), b = 1 - Math.hypot(1 - x, y) / (.4 * k);
+      return clamp(Math.max(a, b) * 1.3 + .05 * Math.sin(x * 20 + t));
+    } },
+};
+const live = [];
+function draw(st) {
+  const { ctx, cfg, W, H } = st; if (!W || !H) return;
+  ctx.clearRect(0, 0, W, H);
+  const c = cfg.cell, g = cfg.gap, cols = Math.ceil(W / c), rows = Math.ceil(H / c), n = cfg.colors.length;
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const v = cfg.f((i + .5) * c / W, (j + .5) * c / H, st.t, W, H);
+    if (v > BAYER[j & 7][i & 7]) {
+      ctx.fillStyle = cfg.colors[Math.min(n - 1, Math.floor(v * n * .999 + BAYER[(j + 3) & 7][(i + 5) & 7] * .6))];
+      ctx.fillRect(i * c, j * c, c - g, c - g);
+    }
+  }
+}
+document.querySelectorAll('canvas[data-field]').forEach(cv => {
+  const cfg = FIELDS[cv.dataset.field]; if (!cfg) return;
+  const st = { cv, cfg, ctx: cv.getContext('2d'), W: 0, H: 0, vis: false, t: 1.3 };
+  const size = () => {
+    const r = cv.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+    st.W = r.width; st.H = r.height;
+    cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr);
+    st.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    draw(st);
+  };
+  if (FIGMA) {
+    // Figma import: swap each canvas for a static PNG of the same artwork
+    size();
+    const img = new Image();
+    img.className = 'dither-img'; img.alt = ''; img.src = cv.toDataURL('image/png');
+    cv.replaceWith(img);
+    return;
+  }
+  new ResizeObserver(size).observe(cv);
+  new IntersectionObserver(([e]) => { st.vis = e.isIntersecting; }, { rootMargin: '100px' }).observe(cv);
+  live.push(st);
+});
+if (!FIGMA && !reduce) {
+  let last = 0;
+  (function loop(ts) {
+    if (ts - last > 110) { last = ts; live.forEach(st => { if (st.cfg.anim && st.vis) { st.t += .12; draw(st); } }); }
+    requestAnimationFrame(loop);
+  })(0);
+}
+
+/* ---------- Reveal ---------- */
+if (!FIGMA) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+}
+
+/* ---------- Videos ---------- */
+const ytSrc = id => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+document.querySelectorAll('[data-inline-video]').forEach(b => b.addEventListener('click', () => {
+  const p = b.closest('.player');
+  const f = document.createElement('iframe');
+  f.src = ytSrc(b.dataset.inlineVideo);
+  f.title = 'Ehroo: how we build your organic sales channel';
+  f.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+  f.allowFullscreen = true;
+  p.appendChild(f); p.classList.add('playing');
+}));
+const vmodal = $('#vmodal'), vbox = $('#vbox');
+let vLast = null;
+document.querySelectorAll('[data-video]').forEach(b => b.addEventListener('click', () => {
+  vLast = b;
+  vbox.classList.toggle('vert', b.hasAttribute('data-vertical'));
+  vbox.innerHTML = `<iframe src="${ytSrc(b.dataset.video)}" title="Video" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  vmodal.classList.add('open'); $('#vclose').focus();
+}));
+const closeVideo = () => { vmodal.classList.remove('open'); vbox.innerHTML = ''; vLast && vLast.focus(); };
+$('#vclose').addEventListener('click', closeVideo);
+vmodal.addEventListener('click', e => { if (e.target === vmodal) closeVideo(); });
+
+
+/* ---------- Carousels ---------- */
+document.querySelectorAll('.car').forEach(track => {
+  const btns = document.querySelectorAll(`[data-car="${track.id}"]`);
+  const step = () => { const c = track.children[0]; return c ? c.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : track.clientWidth; };
+  const sync = () => {
+    const max = track.scrollWidth - track.clientWidth - 2;
+    btns.forEach(b => b.disabled = (+b.dataset.dir < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max));
+  };
+  btns.forEach(b => b.addEventListener('click', () => track.scrollBy({ left: step() * +b.dataset.dir, behavior: reduce ? 'auto' : 'smooth' })));
+  track.addEventListener('scroll', sync, { passive: true });
+  addEventListener('resize', sync);
+  sync();
+});
+
+/* ---------- FAQ ---------- */
+document.querySelectorAll('.qa button').forEach(b => b.addEventListener('click', () => {
+  b.setAttribute('aria-expanded', b.getAttribute('aria-expanded') !== 'true');
+}));
+
+/* ---------- Qualify form ---------- */
+const qmodal = $('#qmodal'), qform = $('#qform');
+const steps = [...qform.querySelectorAll('.qstep')];
+const answers = {};
+let step = 1, qLast = null;
+
+function show(n) {
+  step = n;
+  steps.forEach(s => s.classList.toggle('on', +s.dataset.step === n));
+  $('#qnum').textContent = n;
+  $('#qpct').textContent = (n * 20) + '%';
+  $('#qbar').style.width = (n * 20) + '%';
+  $('#qback').disabled = n === 1;
+  $('#qhint').textContent = n < 5 ? 'Select an option to continue' : 'Almost done';
+  const first = steps[n - 1].querySelector('[aria-pressed=true], .qopt, input');
+  if (first && qmodal.classList.contains('open')) first.focus({ preventScroll: true });
+}
+qform.addEventListener('click', e => {
+  const o = e.target.closest('.qopt'); if (!o) return;
+  const grp = o.parentElement;
+  grp.querySelectorAll('.qopt').forEach(b => b.setAttribute('aria-pressed', b === o));
+  answers[grp.dataset.name] = o.dataset.v;
+  setTimeout(() => show(Math.min(5, step + 1)), reduce ? 0 : 220);
+});
+$('#qback').addEventListener('click', () => show(Math.max(1, step - 1)));
+
+qform.addEventListener('submit', async e => {
+  e.preventDefault();
+  const err = $('#qerr'); err.textContent = '';
+  let bad = null;
+  qform.querySelectorAll('.qstep[data-step="5"] input').forEach(i => {
+    let ok = i.value.trim() !== '';
+    if (ok && i.type === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value.trim());
+    if (ok && i.name === 'website') ok = /\.[a-z]{2,}/i.test(i.value);
+    i.setAttribute('aria-invalid', !ok);
+    if (!ok && !bad) bad = i;
+  });
+  if (bad) { err.textContent = 'Please fill in all four fields with valid details.'; bad.focus(); return; }
+  const lead = { ...answers, ...Object.fromEntries(new FormData(qform)), page: location.href, submittedAt: new Date().toISOString() };
+  const fit = answers.revenue !== 'Pre-revenue' && answers.budget !== 'Under $2K';
+  lead.qualified = fit;
+  if (LEAD_ENDPOINT) {
+    try { await fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) }); } catch (_) {}
+  }
+  steps.forEach(s => s.classList.remove('on'));
+  qform.classList.add('finished');
+  $('#qbook').href = BOOKING_URL;
+  (fit ? $('#qyes') : $('#qnot')).classList.add('on');
+  (fit ? $('#qbook') : $('#qnot .btn')).focus();
+});
+
+function openQualify(trigger) {
+  qLast = trigger;
+  qform.classList.remove('finished');
+  qform.querySelectorAll('.qdone').forEach(d => d.classList.remove('on'));
+  if (!qform.querySelector('.qstep.on')) show(1);
+  qmodal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  show(step);
+}
+function closeQualify() {
+  qmodal.classList.remove('open');
+  document.body.style.overflow = '';
+  qLast && qLast.focus();
+}
+document.querySelectorAll('[data-qualify]').forEach(b => b.addEventListener('click', () => openQualify(b)));
+qmodal.addEventListener('click', e => {
+  if (e.target === qmodal || e.target.closest('[data-qclose]')) closeQualify();
+});
+addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (vmodal.classList.contains('open')) closeVideo();
+  else if (qmodal.classList.contains('open')) closeQualify();
+});
+// Keep keyboard focus inside the open form
+qmodal.addEventListener('keydown', e => {
+  if (e.key !== 'Tab') return;
+  const f = [...qform.querySelectorAll('button:not(:disabled), input, a[href]')].filter(el => el.offsetParent);
+  if (!f.length) return;
+  if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+  else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+});
+
+/* ---------- Figma: show the form as three static screens ---------- */
+if (FIGMA) {
+  const wrap = qmodal.querySelector('.qwrap');
+  const c2 = qform.cloneNode(true), c3 = qform.cloneNode(true);
+  [c2, c3].forEach(c => c.removeAttribute('id'));
+  const pick = (card, n) => {
+    card.querySelectorAll('.qstep').forEach(s => s.classList.toggle('on', +s.dataset.step === n));
+    card.querySelector('#qnum') && (card.querySelector('#qnum').textContent = n);
+    card.querySelector('.qbar i').style.width = (n * 20) + '%';
+    card.querySelector('.qprog span:last-child').textContent = (n * 20) + '%';
+  };
+  qform.querySelector('.qopt').setAttribute('aria-pressed', 'true');
+  pick(c2, 2); c2.querySelectorAll('.qopt')[0].setAttribute('aria-pressed', 'true');
+  c3.classList.add('finished'); c3.querySelectorAll('.qstep').forEach(s => s.classList.remove('on'));
+  c3.querySelector('.qdone').classList.add('on');
+  wrap.append(c2, c3);
+}
+</script>
+</body>
+</html>
