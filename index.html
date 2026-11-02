@@ -141,43 +141,53 @@ svg.ic{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke
 .car{display:grid;grid-auto-flow:column;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain}
 .car::-webkit-scrollbar{display:none}
 .car>*{scroll-snap-align:start}
-.car-nav{display:flex;justify-content:center;gap:16px;margin-top:40px}
-.car-btn{width:72px;height:72px;border-radius:14px;background:var(--pale-2);border:1px solid #E1E9F8;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:background .15s,opacity .15s}
-.car-btn svg.ic{width:22px;height:22px}
-.car-btn:hover:not(:disabled){background:var(--lime);border-color:#000;color:#000}
-.car-btn:disabled{opacity:.4;cursor:default}
 
-/* ---------- Case studies (ehroo.com card) ---------- */
-.cs-track{grid-auto-columns:calc((100% - 56px) / 3);gap:28px;padding:4px 8px 14px 2px}
-.cs{display:flex;flex-direction:column;background:#fff;border:1px solid var(--blue);border-radius:16px;box-shadow:6px 6px 0 var(--blue);padding:16px 16px 0;min-width:0}
-.cs-tag{align-self:flex-start;font-size:15px;color:#4A5B78;background:#E8F0FE;border-radius:8px;padding:5px 10px}
-.cs h3{font-family:var(--font-heading);font-weight:500;font-size:30px;line-height:1.25;letter-spacing:-.03em;color:var(--blue);margin-top:14px;min-height:2.5em}
-.cs-sub{font-size:12.5px;letter-spacing:.06em;color:#5B6474;margin-top:8px}
-.cs-shot{position:relative;display:block;margin-top:16px;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:var(--pale)}
-.cs-shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.cs-shot .btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:14px 30px}
-.cs-shot .btn:hover{transform:translate(-50%,-50%) scale(1.03)}
-.cs:hover .cs-shot img{transform:scale(1.04)}
-.cs-ex{font-size:15px;line-height:1.6;color:#4A5B78;margin-top:26px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.cs-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0 16px;margin-top:auto}
-.flag{display:inline-flex;align-items:center;gap:8px;font-size:17px;color:#4A5B78;border:1px solid #CFD6E2;border-radius:8px;padding:6px 10px}
-.flag img{width:24px;height:16px;object-fit:cover;border-radius:2px}
-.cs-foot .link{font-size:16px}
+/* ---------- Case studies (matches ehroo.com) ---------- */
+.cs-track{grid-auto-columns:372px;gap:24px;padding:4px 10px 14px 2px}
+.cs{display:flex;flex-direction:column;align-items:flex-start;background:#fff;border:1px solid var(--blue);border-radius:16px;box-shadow:6px 6px 0 var(--blue);padding:16px;min-width:0;text-align:left;transition:box-shadow .3s ease}
+.cs:hover{box-shadow:8px 8px 0 var(--blue)}
+.cs-tag{font-family:var(--font-heading);font-weight:500;font-size:16px;line-height:1.25;letter-spacing:-.03em;color:#50607E;background:rgba(0,114,243,.1);border-radius:8px;padding:10px;margin-bottom:14px}
+.cs h3{font-family:var(--font-heading);font-weight:500;font-size:32px;line-height:1.25;letter-spacing:-.05em;color:var(--blue);margin-bottom:4px;height:80px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cs-sub{display:block;font-family:var(--font-heading);font-weight:500;font-size:12px;letter-spacing:.05em;color:#50607E;margin-bottom:16px;height:16px}
+.cs-shot{position:relative;display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;margin-bottom:32px;background:#020617}
+.cs-shot img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:filter .3s ease}
+.cs-hover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.1);opacity:0;transition:opacity .3s ease}
+.cs-hover .btn{pointer-events:none;min-width:178px;padding:18px 35px}
+.cs:hover .cs-hover,.cs:focus-visible .cs-hover{opacity:1}
+.cs:hover .cs-shot img,.cs:focus-visible .cs-shot img{filter:blur(4px)}
+.cs-ex{font-family:var(--font-heading);font-size:16px;line-height:1.5;color:#50607E;height:96px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.cs-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;padding-top:24px;margin-top:auto}
+.flag{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-heading);font-weight:500;font-size:18px;color:#50607E;border:1px solid rgba(0,0,0,.2);border-radius:10px;padding:6px 8px}
+.flag img{width:24px;height:auto;border-radius:2px}
+.cs-foot .link{font-size:16px;font-weight:500}
+.cs:hover .cs-foot .link svg.ic{transform:translateX(4px)}
+/* Touch screens have no hover: keep the button visible there */
+@media (hover:none){.cs-hover{opacity:1}}
 
-/* ---------- Testimonials (ehroo.com card) ---------- */
-.t-track{grid-auto-columns:min(700px,84%);gap:48px;padding:8px 10px 14px 2px}
-.t-slide{position:relative;padding-left:100px;display:flex;align-items:stretch}
-.t-face{position:absolute;left:0;top:50%;transform:translateY(-50%);width:184px;height:184px;border-radius:50%;border:1px solid var(--blue);overflow:hidden;background:#fff;z-index:1}
-.t-face img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
-.t-face.is-video .mini{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:var(--lime);border:2px solid #000;box-shadow:4px 4px 0 #000;display:flex;align-items:center;justify-content:center;transition:transform .15s}
-.t-face.is-video .mini svg{width:20px;height:20px;margin-left:3px;fill:#000}
-.t-face.is-video:hover .mini{transform:translate(-50%,-50%) scale(1.08)}
-.t-card{flex:1;display:flex;flex-direction:column;gap:28px;background:#EEF4FF;border:1px solid var(--blue);border-radius:24px;box-shadow:4px 4px 0 var(--blue);padding:40px 48px 34px 112px;min-height:344px}
-.t-card blockquote{font-size:18px;line-height:1.55;color:var(--navy)}
-.t-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:auto}
-.t-foot strong{display:block;font-family:var(--font-heading);font-weight:500;font-size:20px;color:var(--navy-ink);letter-spacing:-.02em}
-.t-foot span{font-size:15px;color:#7A8499}
-.t-foot img{height:28px;width:auto;max-width:180px;object-fit:contain}
+/* ---------- Testimonials (matches ehroo.com) ---------- */
+.t-track{--side:calc((100vw - min(972px, 100vw - 40px)) / 2);display:flex;gap:56px;padding:0 var(--side) 24px;scroll-padding:0 var(--side);overflow-x:auto;scroll-snap-type:x mandatory}
+.t-slide{flex:0 0 696px;display:flex;scroll-snap-align:center;user-select:none}
+.t-inner{position:relative;width:100%;display:flex;align-items:center;padding-left:100px}
+.t-card{position:relative;z-index:0;width:100%;height:100%;display:flex;flex-direction:column;background:#EFF5FF;border:1px solid var(--blue);border-radius:30px;box-shadow:4px 4px 0 #1359E0;padding:32px 56px 32px 100px;text-align:left}
+.t-q{flex:1;font-family:var(--font-heading);font-size:20px;line-height:1.375;letter-spacing:-.05em;color:oklch(25.75% .0787 254.23);margin-bottom:32px}
+.t-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}
+.t-foot strong{display:block;font-family:var(--font-body);font-weight:600;font-size:20px;color:oklch(25.75% .0787 254.23)}
+.t-foot span{display:block;font-family:var(--font-body);font-size:16px;color:oklch(25.75% .0787 254.23 / .5)}
+.t-logo{height:32px;display:flex;align-items:center;flex-shrink:0}
+.t-logo img{height:100%;width:auto;max-width:200px;object-fit:contain;opacity:.7;transition:opacity .3s}
+.t-logo img:hover{opacity:1}
+.t-face{position:absolute;z-index:1;left:0;width:184px;height:184px;border-radius:50%;border:1px solid var(--blue);overflow:hidden;background:#fff}
+.t-face .t-grad{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.t-face .t-photo{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:top}
+.t-play-wrap{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.1)}
+.t-play{width:56px;height:57px;border-radius:100px;border:1.68px solid #011324;background:var(--lime);opacity:.8;box-shadow:0 40px 175px 0 #E3F0FE,6.72px 6.72px 0 0 #000;display:flex;align-items:center;justify-content:center;transition:transform .2s cubic-bezier(.16,1,.3,1),opacity .2s}
+.t-play svg{width:20px;height:20px;fill:#011324;margin-left:2px}
+.t-play-wrap:hover .t-play{opacity:1;transform:scale(1.06)}
+.car-nav{display:flex;justify-content:center;gap:16px;margin-top:48px}
+.car-btn{width:92px;height:92px;border-radius:20px;background:#F4F6FF;border:0;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:opacity .3s,background .2s}
+.car-btn svg.ic{width:26px;height:26px;stroke-width:1.5}
+.car-btn:hover:not(:disabled){background:#E8EFFF}
+.car-btn:disabled{opacity:.3;pointer-events:none}
 
 /* ---------- Mid CTA ---------- */
 .band{background:var(--blue);color:#fff;position:relative;overflow:hidden}
@@ -317,13 +327,12 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px;font-size:13px;color
   .point{padding:14px;gap:10px}
   .point strong{font-size:15px}
   .point span{font-size:12.5px}
-  .cs-track{grid-auto-columns:calc((100% - 28px) / 2)}
-  .t-track{grid-auto-columns:88%}
   .partners{grid-template-columns:repeat(4,1fr)}
   .partner{border-bottom:1px solid var(--line)}
   .partner:nth-child(4n){border-right:0}
   .partner:nth-last-child(-n+3){border-bottom:0}
   .faq{grid-template-columns:1fr;gap:32px}
+  .cs-track{justify-content:start}
   .faq-side{position:static}
   .cs h3{font-size:26px}
   .figma .qmodal .qwrap{grid-template-columns:1fr 1fr}
@@ -370,22 +379,24 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px;font-size:13px;color
   .track img{height:24px}
   .vid{flex-basis:86%}
   .vid h3{font-size:18px}
-  .cs-track,.t-track{margin:0 calc(-1 * var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter);scroll-padding-left:var(--gutter)}
-  .cs-track{grid-auto-columns:88%;gap:16px}
-  .cs{padding:14px 14px 0;box-shadow:5px 5px 0 var(--blue)}
-  .cs h3{font-size:24px}
-  .cs-ex{font-size:14px;margin-top:18px}
-  .flag{font-size:15px}
-  .t-track{grid-auto-columns:90%;gap:16px}
-  .t-slide{padding-left:0;padding-top:64px}
-  .t-face{left:20px;top:0;transform:none;width:128px;height:128px}
-  .t-face.is-video .mini{width:48px;height:48px}
-  .t-card{padding:80px 20px 22px;min-height:0;gap:20px;border-radius:20px}
-  .t-card blockquote{font-size:16px}
-  .t-foot{flex-direction:column;align-items:flex-start;gap:12px}
-  .t-foot img{height:22px}
-  .car-nav{margin-top:24px}
-  .car-btn{width:56px;height:56px}
+  .cs-track{grid-auto-columns:calc(100vw - 44px);gap:16px;margin:0 calc(-1 * var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter);scroll-padding-left:var(--gutter);justify-content:start}
+  .cs-tag{font-size:12px}
+  .cs h3{font-size:24px;height:90px}
+  .flag{font-size:14px}
+  .flag img{width:20px}
+  .cs-foot .link{font-size:14px}
+  .cs-hover .btn{min-width:0;padding:12px 16px;font-size:14px}
+  .t-track{gap:20px}
+  .t-slide{flex-basis:calc(100vw - 40px)}
+  .t-inner{padding-left:0;padding-top:56px}
+  .t-card{padding:64px 24px 24px}
+  .t-q{font-size:16px;margin-bottom:20px}
+  .t-foot strong{font-size:18px}
+  .t-foot span{font-size:14px}
+  .t-logo{height:24px}
+  .t-face{width:104px;height:104px;left:24px;top:0}
+  .car-nav{gap:32px;margin-top:20px}
+  .car-btn{width:48px;height:48px;border-radius:16px;background:transparent;border:.5px solid #8C8C8C}
   .band .wrap{padding-top:44px;padding-bottom:44px}
   .band-cta,.band-cta .btn{width:100%}
   .partners{grid-template-columns:repeat(2,1fr)}
@@ -566,94 +577,103 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px;font-size:13px;color
       <p class="lede">Here's what happens when the system goes live.</p>
     </div>
     <div class="cs-track car" id="csTrack">
-      <article class="cs rv">
+      <a class="cs rv" href="https://ehroo.com/case-studies">
         <span class="cs-tag">B2B Technology Company</span>
         <h3>$3M+ Sales Pipeline in 6 Months Without Ads</h3>
         <span class="cs-sub">WeframeTech Case Study</span>
-        <a class="cs-shot" href="https://ehroo.com/case-studies" tabindex="-1"><img src="assets/cs-weframetech.jpg" alt="WeframeTech website" width="1000" height="562"><span class="btn btn-lime">Read Case Study</span></a>
+        <span class="cs-shot"><img src="assets/cs-weframetech.jpg" alt="WeframeTech website" width="1000" height="562"><span class="cs-hover"><span class="btn btn-lime">Read Case Study</span></span></span>
         <p class="cs-ex">Discover how we helped this B2B company book 300+ qualified meetings in 6 months, generate over $3 million in sales pipeline, build a fully inbound organic sales channel, and dominate AI search results.</p>
-        <div class="cs-foot"><span class="flag"><img src="assets/flag-in.png" alt="" width="40" height="30">India</span><a href="https://ehroo.com/case-studies" class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </article>
-      <article class="cs rv">
+        <div class="cs-foot"><span class="flag"><img src="assets/flag-in.png" alt="" width="40" height="30">India</span><span class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="cs rv" href="https://ehroo.com/case-studies">
         <span class="cs-tag">B2B SaaS</span>
         <h3>Supademo's $3M+ ARR Growth Story</h3>
         <span class="cs-sub">B2B SaaS Case Study</span>
-        <a class="cs-shot" href="https://ehroo.com/case-studies" tabindex="-1"><img src="assets/cs-supademo.jpg" alt="Supademo website" width="1000" height="562"><span class="btn btn-lime">Read Case Study</span></a>
+        <span class="cs-shot"><img src="assets/cs-supademo.jpg" alt="Supademo website" width="1000" height="562"><span class="cs-hover"><span class="btn btn-lime">Read Case Study</span></span></span>
         <p class="cs-ex">Read how this SaaS company reached $3M+ ARR without spending on paid ads, building a fully inbound growth engine.</p>
-        <div class="cs-foot"><span class="flag"><img src="assets/flag-us.png" alt="" width="40" height="30">US</span><a href="https://ehroo.com/case-studies" class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </article>
-      <article class="cs rv">
+        <div class="cs-foot"><span class="flag"><img src="assets/flag-us.png" alt="" width="40" height="30">US</span><span class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="cs rv" href="https://ehroo.com/case-studies">
         <span class="cs-tag">B2B Technology Company</span>
         <h3>Learnesy Case Study</h3>
         <span class="cs-sub">B2B EdTech Company</span>
-        <a class="cs-shot" href="https://ehroo.com/case-studies" tabindex="-1"><img src="assets/cs-learnesy.jpg" alt="Learnesy website" width="1000" height="562"><span class="btn btn-lime">Read Case Study</span></a>
+        <span class="cs-shot"><img src="assets/cs-learnesy.jpg" alt="Learnesy website" width="1000" height="562"><span class="cs-hover"><span class="btn btn-lime">Read Case Study</span></span></span>
         <p class="cs-ex">Read how we're helping a B2B EdTech company generate qualified inbound demand, increase customer lifetime value, and build a $150K to $300K+ annual sales pipeline through SEO and AI search visibility.</p>
-        <div class="cs-foot"><span class="flag"><img src="assets/flag-se.png" alt="" width="40" height="30">Sweden</span><a href="https://ehroo.com/case-studies" class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </article>
-      <article class="cs rv">
+        <div class="cs-foot"><span class="flag"><img src="assets/flag-se.png" alt="" width="40" height="30">Sweden</span><span class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="cs rv" href="https://ehroo.com/case-studies">
         <span class="cs-tag">B2B Manufacturer</span>
         <h3>$1M+ Pipeline for Steel Manufacturing</h3>
         <span class="cs-sub">B2B Manufacturing Company</span>
-        <a class="cs-shot" href="https://ehroo.com/case-studies" tabindex="-1"><img src="assets/cs-smi.jpg" alt="Steel Masters International website" width="1000" height="562"><span class="btn btn-lime">Read Case Study</span></a>
+        <span class="cs-shot"><img src="assets/cs-smi.jpg" alt="Steel Masters International website" width="1000" height="562"><span class="cs-hover"><span class="btn btn-lime">Read Case Study</span></span></span>
         <p class="cs-ex">See how we're helping Steel Masters International generate qualified inbound demand, expand into international markets, and create a $250K to $1M+ annual sales pipeline through SEO and AI search visibility.</p>
-        <div class="cs-foot"><span class="flag"><img src="assets/flag-ae.png" alt="" width="40" height="30">UAE</span><a href="https://ehroo.com/case-studies" class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </article>
+        <div class="cs-foot"><span class="flag"><img src="assets/flag-ae.png" alt="" width="40" height="30">UAE</span><span class="link">Read More <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
     </div>
     <div class="car-nav rv">
-      <button class="car-btn" data-car="csTrack" data-dir="-1" aria-label="Previous case study" disabled><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
-      <button class="car-btn" data-car="csTrack" data-dir="1" aria-label="Next case study"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="car-btn" data-car="csTrack" data-dir="-1" aria-label="Previous case study" disabled><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      <button class="car-btn" data-car="csTrack" data-dir="1" aria-label="Next case study"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
 
 <!-- ===================== TESTIMONIALS ===================== -->
-<section class="sec sec-pale" id="testimonials">
+<section class="sec" id="testimonials">
   <div class="wrap">
     <div class="head rv">
-      <span class="eyebrow">Testimonials</span>
       <h2 class="h2">Hear from our <b>clients</b></h2>
     </div>
-    <div class="t-track car" id="tTrack">
-      <figure class="t-slide rv">
-        <button class="t-face is-video" data-video="a7hQpQUNbdQ" data-vertical aria-label="Play Durgesh Ray's video testimonial"><img src="assets/yt-a7hQpQUNbdQ-v.jpg" alt="" width="405" height="720"><span class="mini"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></button>
-        <div class="t-card">
-          <blockquote>In just six months, Ehroo helped us generate 300+ qualified meetings and significantly grow our visibility across AI search platforms. Working with their team has been one of the best growth decisions we've made.</blockquote>
-          <figcaption class="t-foot"><div><strong>Durgesh Ray</strong><span>Head of Design, WeframeTech</span></div><img src="assets/c-weframetech.png" alt="WeframeTech" height="28"></figcaption>
+  </div>
+  <div class="t-track car" id="tTrack">
+      <div class="t-slide rv">
+        <div class="t-inner">
+          <figure class="t-card">
+            <blockquote class="t-q">In just six months, Ehroo helped us generate 300+ qualified meetings and significantly grow our visibility across AI search platforms. Working with their team has been one of the best growth decisions we've made.</blockquote>
+            <figcaption class="t-foot"><div><strong>Durgesh Ray</strong><span>Head of Design</span></div><span class="t-logo"><img src="assets/c-weframetech.png" alt="WeframeTech" height="32"></span></figcaption>
+          </figure>
+          <div class="t-face"><img class="t-grad" src="assets/gradient-02.png" alt="" width="513" height="380"><img class="t-photo" src="assets/t-durgesh.jpg" alt="Durgesh Ray" width="240" height="240"><button class="t-play-wrap" data-video="a7hQpQUNbdQ" data-vertical aria-label="Play Durgesh Ray's video testimonial"><span class="t-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></button></div>
         </div>
-      </figure>
-      <figure class="t-slide rv">
-        <span class="t-face"><img src="assets/t-nikhil.png" alt="Nikhil Patel" width="240" height="240"></span>
-        <div class="t-card">
-          <blockquote>Ehroo has been a valuable growth partner for our business. Their marketing strategies helped us improve our online visibility, attract the right audience, and generate consistent results. If you're looking for a team that genuinely cares about your success, I highly recommend working with them.</blockquote>
-          <figcaption class="t-foot"><div><strong>Nikhil Patel</strong><span>CEO, Nyeon Technologies</span></div><img src="assets/c-nyeon.png" alt="Nyeon Technologies" height="28"></figcaption>
+      </div>
+      <div class="t-slide rv">
+        <div class="t-inner">
+          <figure class="t-card">
+            <blockquote class="t-q">Ehroo has been a valuable growth partner for our business. Their marketing strategies helped us improve our online visibility, attract the right audience, and generate consistent results. If you're looking for a team that genuinely cares about your success, I highly recommend working with them.</blockquote>
+            <figcaption class="t-foot"><div><strong>Nikhil Patel</strong><span>CEO</span></div><span class="t-logo"><img src="assets/c-nyeon.png" alt="Nyeon Technologies" height="32"></span></figcaption>
+          </figure>
+          <div class="t-face"><img class="t-grad" src="assets/gradient-02.png" alt="" width="513" height="380"><img class="t-photo" src="assets/t-nikhil.png" alt="Nikhil Patel" width="240" height="240"></div>
         </div>
-      </figure>
-      <figure class="t-slide rv">
-        <button class="t-face is-video" data-video="no5yZ0KcOKk" data-vertical aria-label="Play Simrat Bhandari's video testimonial"><img src="assets/yt-no5yZ0KcOKk-v.jpg" alt="" width="405" height="720"><span class="mini"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></button>
-        <div class="t-card">
-          <blockquote>The team was professional, transparent, and easy to work with throughout our website and digital marketing revamp. Their expertise, clear communication, and valuable recommendations made the process seamless. I highly recommend their services.</blockquote>
-          <figcaption class="t-foot"><div><strong>Simrat Bhandari</strong><span>Head of Growth, Steel Masters International</span></div><img src="assets/c-smi.svg" alt="Steel Masters International" height="28"></figcaption>
+      </div>
+      <div class="t-slide rv">
+        <div class="t-inner">
+          <figure class="t-card">
+            <blockquote class="t-q">Ehroo played a key role in helping us refine our positioning, messaging, and conversion strategy. Through a series of strategic conversations and CRO initiatives, they helped us better communicate our value, improve customer journeys, and drive measurable business results. Their team is proactive, collaborative, and focused on outcomes.</blockquote>
+            <figcaption class="t-foot"><div><strong>Adam Sebastian</strong><span>CEO</span></div><span class="t-logo"><img src="assets/c-nordic.svg" alt="Nordic Stem Cells" height="32"></span></figcaption>
+          </figure>
+          <div class="t-face"><img class="t-grad" src="assets/gradient-02.png" alt="" width="513" height="380"><img class="t-photo" src="assets/t-adam.jpg" alt="Adam Sebastian" width="240" height="240"></div>
         </div>
-      </figure>
-      <figure class="t-slide rv">
-        <span class="t-face"><img src="assets/t-adam.jpg" alt="Adam Sebastian" width="240" height="240"></span>
-        <div class="t-card">
-          <blockquote>Ehroo played a key role in helping us refine our positioning, messaging, and conversion strategy. Through a series of strategic conversations and CRO initiatives, they helped us better communicate our value, improve customer journeys, and drive measurable business results. Their team is proactive, collaborative, and focused on outcomes.</blockquote>
-          <figcaption class="t-foot"><div><strong>Adam Sebastian</strong><span>CEO, Nordic Stem Cells</span></div><img src="assets/c-nordic.svg" alt="Nordic Stem Cells" height="28"></figcaption>
+      </div>
+      <div class="t-slide rv">
+        <div class="t-inner">
+          <figure class="t-card">
+            <blockquote class="t-q">Ehroo combines creativity, strategy, and execution exceptionally well. Their team quickly understood our goals. They're reliable, proactive, and committed to delivering real business impact.</blockquote>
+            <figcaption class="t-foot"><div><strong>Eshwar Mahadevan</strong><span>Founder</span></div><span class="t-logo"><img src="assets/c-onwhitepaper.png" alt="OnWhitePaper" height="32"></span></figcaption>
+          </figure>
+          <div class="t-face"><img class="t-grad" src="assets/gradient-02.png" alt="" width="513" height="380"><img class="t-photo" src="assets/t-eshwar.jpg" alt="Eshwar Mahadevan" width="240" height="240"></div>
         </div>
-      </figure>
-      <figure class="t-slide rv">
-        <span class="t-face"><img src="assets/t-eshwar.jpg" alt="Eshwar Mahadevan" width="240" height="240"></span>
-        <div class="t-card">
-          <blockquote>Ehroo combines creativity, strategy, and execution exceptionally well. Their team quickly understood our goals. They're reliable, proactive, and committed to delivering real business impact.</blockquote>
-          <figcaption class="t-foot"><div><strong>Eshwar Mahadevan</strong><span>Founder, OnWhitePaper</span></div><img src="assets/c-onwhitepaper.png" alt="OnWhitePaper" height="28"></figcaption>
+      </div>
+      <div class="t-slide rv">
+        <div class="t-inner">
+          <figure class="t-card">
+            <blockquote class="t-q">The team was professional, transparent, and easy to work with throughout our website and digital marketing revamp. Their expertise, clear communication, and valuable recommendations made the process seamless. I highly recommend their services.</blockquote>
+            <figcaption class="t-foot"><div><strong>Simrat Bhandari</strong><span>Head of Growth</span></div><span class="t-logo"><img src="assets/c-smi.svg" alt="Steel Masters International" height="32"></span></figcaption>
+          </figure>
+          <div class="t-face"><img class="t-grad" src="assets/gradient-02.png" alt="" width="513" height="380"><img class="t-photo" src="assets/t-simrat.jpg" alt="Simrat Bhandari" width="240" height="240"><button class="t-play-wrap" data-video="no5yZ0KcOKk" data-vertical aria-label="Play Simrat Bhandari's video testimonial"><span class="t-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></button></div>
         </div>
-      </figure>
-    </div>
-    <div class="car-nav rv">
-      <button class="car-btn" data-car="tTrack" data-dir="-1" aria-label="Previous testimonial" disabled><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
-      <button class="car-btn" data-car="tTrack" data-dir="1" aria-label="Next testimonial"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-    </div>
+      </div>
+  </div>
+  <div class="car-nav rv">
+    <button class="car-btn" data-car="tTrack" data-dir="-1" aria-label="Previous testimonials" disabled><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+    <button class="car-btn" data-car="tTrack" data-dir="1" aria-label="Next testimonials"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
   </div>
 </section>
 
