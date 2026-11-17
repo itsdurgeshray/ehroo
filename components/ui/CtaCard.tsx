@@ -1,7 +1,7 @@
 /** ehroo.com closing CTA card ("Build an organic sales channel..."): blue offset layer, radial glows, wave texture. */
 export default function CtaCard({ children }: { children: React.ReactNode }) {
   return (
-    <section className="w-full py-8 md:py-24 bg-white">
+    <section className="w-full py-10 md:py-14 lg:py-16 bg-white">
       <div className="max-w-295 mx-auto px-5 md:px-6">
         <div className="relative">
           <div className="absolute left-1 top-1 -right-1 -bottom-1 bg-[#007FFF] rounded-[28px] pointer-events-none" />

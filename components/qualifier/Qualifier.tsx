@@ -30,9 +30,9 @@ const BARS: Record<Exclude<Phase, 'reject'>, string[]> = {
   verify: ['bg-accent-foreground', 'bg-accent-foreground', 'bg-[#E1FF3B]'],
 };
 
-const H2 = 'text-2xl md:text-[30px] font-heading font-semibold text-foreground leading-none mb-5.5';
+const H2 = 'text-[21px] md:text-[26px] font-heading font-semibold text-foreground leading-tight tracking-[-0.01em] mb-4 md:mb-5';
 const INPUT =
-  'w-full border rounded-[10px] px-4 py-3 text-sm font-heading placeholder:text-black/54 outline-none focus:border-accent-foreground transition-all bg-[#F8F8F8]';
+  'w-full border rounded-[10px] px-4 py-3 text-base md:text-sm font-heading placeholder:text-black/54 outline-none focus:border-accent-foreground transition-all bg-[#F8F8F8]';
 const BACK =
   'py-2.5 px-9 bg-white hover:bg-accent-foreground/5 border border-accent-foreground rounded-full text-accent-foreground transition-colors cursor-pointer disabled:opacity-50 disabled:pointer-events-none';
 const SUBMIT =
@@ -98,8 +98,16 @@ export default function Qualifier() {
   const e164 = useMemo(() => toE164(cc, phone), [cc, phone]);
 
   // Move focus to the new step's heading so keyboard and screen-reader users follow along.
+  // On phones the options run below the fold, so bring the card's top back into view when the step changes.
+  const mounted = useRef(false);
   useEffect(() => {
-    cardRef.current?.querySelector<HTMLElement>('[data-step-heading]')?.focus({ preventScroll: true });
+    const card = cardRef.current;
+    card?.querySelector<HTMLElement>('[data-step-heading]')?.focus({ preventScroll: true });
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+    if (card && card.getBoundingClientRect().top < 0) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [phase, qIndex]);
 
   useEffect(() => {
@@ -258,21 +266,21 @@ export default function Qualifier() {
   const rejectQ = QUESTIONS.find((x) => x.id === rejectedBy);
 
   return (
-    <div ref={cardRef} className="w-full bg-white border border-black/17 rounded-[22px] p-6 md:p-8 flex flex-col justify-between min-h-120">
-      <div className="flex items-center gap-2.5 py-2 mb-6">
+    <div ref={cardRef} className="w-full bg-white border border-black/17 rounded-[20px] p-5 md:p-7 flex flex-col justify-between md:min-h-110 scroll-mt-20">
+      <div className="flex items-center gap-2 mb-4 md:mb-5">
         <div className="border border-black/17 rounded-md">
-          <img src="/img/logo-mark.png" alt="" className="size-13" />
+          <img src="/img/logo-mark.png" alt="" className="size-9 md:size-10" />
         </div>
-        <span className="text-[30px] font-heading font-bold text-accent-foreground">Ehroo</span>
+        <span className="text-[22px] md:text-2xl font-heading font-bold text-accent-foreground">Ehroo</span>
       </div>
 
-      <div className="mb-6">
-        <span className="text-xs font-heading font-medium text-secondary-foreground/70 tracking-wider block mb-3 uppercase">
+      <div className="mb-5">
+        <span className="text-[11px] md:text-xs font-heading font-medium text-secondary-foreground/70 tracking-wider block mb-2.5 uppercase">
           {STEP_LABEL[stepPhase]}
         </span>
         <div className="grid grid-cols-3 gap-2" aria-hidden="true">
           {BARS[stepPhase].map((c, i) => (
-            <div key={i} className={`h-2.5 rounded transition-all duration-300 ${c}`} />
+            <div key={i} className={`h-2 rounded transition-all duration-300 ${c}`} />
           ))}
         </div>
       </div>
@@ -283,13 +291,13 @@ export default function Qualifier() {
             <legend className="sr-only">
               Question {qIndex + 1} of {QUESTIONS.length}
             </legend>
-            <span className="block text-xs font-heading font-medium text-accent-foreground tracking-wider mb-2.5 uppercase">
+            <span className="block text-xs font-heading font-medium text-accent-foreground tracking-wider mb-2 uppercase">
               Question {qIndex + 1} of {QUESTIONS.length}
             </span>
             <h2 data-step-heading tabIndex={-1} className={cn(H2, 'outline-none')}>
               {q.title}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
               {q.options.map((o) => {
                 const on = answers[q.id] === o.value;
                 return (
@@ -299,12 +307,12 @@ export default function Qualifier() {
                     aria-pressed={on}
                     onClick={() => pick(o.value)}
                     className={cn(
-                      'flex flex-row items-center gap-4 bg-white border border-black/17 rounded-[14px] p-4 text-left cursor-pointer hover:border-accent-foreground transition-all duration-200 group',
+                      'flex flex-row items-center gap-4 bg-white border border-black/17 rounded-[12px] px-4 py-3 min-h-13 text-left cursor-pointer active:scale-[0.99] hover:border-accent-foreground transition-all duration-200 group',
                       on && 'border-accent-foreground bg-[#EFF5FF]',
                     )}
                   >
-                    <span className="flex-1 text-base font-heading font-semibold text-foreground leading-snug">{o.value}</span>
-                    <span className="flex border border-black/17 rounded-full p-2 items-center justify-center shrink-0 group-hover:border-accent-foreground transition-colors">
+                    <span className="flex-1 text-[15px] font-heading font-semibold text-foreground leading-snug">{o.value}</span>
+                    <span className="flex border border-black/17 rounded-full p-1.5 items-center justify-center shrink-0 group-hover:border-accent-foreground transition-colors">
                       <Chevron />
                     </span>
                   </button>
@@ -312,7 +320,7 @@ export default function Qualifier() {
               })}
             </div>
           </fieldset>
-          <div className="flex justify-between items-center gap-3 mt-8">
+          <div className="flex justify-between items-center gap-3 mt-6">
             {qIndex > 0 ? (
               <button type="button" onClick={back} className={BACK} aria-label="Previous question">
                 <BackArrow />
@@ -364,7 +372,7 @@ export default function Qualifier() {
           </div>
           <div>
             {formError && <p className="text-red-500 text-sm font-heading mt-4 text-center">{formError}</p>}
-            <div className="flex justify-between items-center gap-3 mt-8">
+            <div className="flex justify-between items-center gap-3 mt-6">
               <button type="button" onClick={back} disabled={!!busy} className={BACK} aria-label="Previous step">
                 <BackArrow />
               </button>
@@ -430,7 +438,7 @@ export default function Qualifier() {
           </div>
           <div>
             {formError && <p className="text-red-500 text-sm font-heading mt-4 text-center">{formError}</p>}
-            <div className="flex justify-between items-center gap-3 mt-8">
+            <div className="flex justify-between items-center gap-3 mt-6">
               <button type="button" onClick={back} disabled={!!busy} className={BACK} aria-label="Previous step">
                 <BackArrow />
               </button>

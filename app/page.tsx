@@ -1,6 +1,7 @@
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import VideoModalProvider from '@/components/ui/VideoModal';
+import MobileCta from '@/components/ui/MobileCta';
 import { btnFooter } from "@/components/ui/button";
 import Hero from '@/components/home/Hero';
 import VideoCards from '@/components/home/VideoCards';
@@ -35,6 +36,7 @@ export default function Home() {
         <QualifySection />
       </main>
       <Footer btnClass={btnFooter} />
+      <MobileCta />
     </VideoModalProvider>
   );
 }

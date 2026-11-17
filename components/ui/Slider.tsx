@@ -218,7 +218,7 @@ export function SliderButton({ direction, children, className, ...rest }: { dire
   );
 }
 
-const ARROW = 'size-10 md:size-6.5 stroke-[1.5] text-accent-foreground';
+const ARROW = 'size-6 md:size-5.5 stroke-[1.5] text-accent-foreground';
 export const ArrowLeft = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`lucide lucide-arrow-left ${ARROW}`} aria-hidden="true">
     <path d="m12 19-7-7 7-7" />
@@ -231,4 +231,4 @@ export const ArrowRight = () => (
     <path d="m12 5 7 7-7 7" />
   </svg>
 );
-export const NAV_BTN = 'size-12 md:size-23 rounded-[16px] md:rounded-[20px] border-[#8C8C8C] border-[0.5px] md:border-0 md:bg-[#F4F6FF]';
+export const NAV_BTN = 'size-12 md:size-14 rounded-[14px] md:rounded-[16px] hover:md:bg-[#E6ECFF] active:scale-95 border-[#8C8C8C] border-[0.5px] md:border-0 md:bg-[#F4F6FF]';

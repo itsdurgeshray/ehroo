@@ -26,11 +26,11 @@ function Placeholder({ Icon, title, note }: { Icon: typeof ImageIcon; title: str
 /** Section 4: "See our pricing, strategy & how we work" with the pricing video and pricing screenshot. */
 export default function Pricing() {
   return (
-    <section id="pricing" className="w-full py-8 md:py-26 bg-[#F6FAFF] overflow-hidden">
+    <section id="pricing" className="w-full py-10 md:py-16 lg:py-20 bg-[#F6FAFF] overflow-hidden">
       <div className="max-w-360 mx-auto px-6">
-        <div className="max-w-294.5 mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-12 mb-10 md:mb-16">
+        <div className="max-w-294.5 mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-12 mb-10 md:mb-10">
           <div className="max-w-160">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-heading text-primary-foreground leading-[1.2] md:leading-14 tracking-[-5%]">
+            <h2 className="text-[26px] leading-[1.12] sm:text-[34px] md:text-[40px] lg:text-[44px] md:leading-[1.08] font-heading text-primary-foreground tracking-[-5%]">
               See our pricing, strategy &amp; <span className="text-accent-foreground font-bold">how we work</span>
             </h2>
           </div>

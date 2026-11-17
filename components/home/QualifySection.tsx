@@ -6,16 +6,16 @@ import Qualifier from '@/components/qualifier/Qualifier';
  */
 export default function QualifySection() {
   return (
-    <section id="qualify" className="w-full py-16 md:py-24 overflow-x-clip relative bg-white">
+    <section id="qualify" className="w-full py-12 md:py-16 lg:py-20 overflow-x-clip relative bg-white">
       <div
         aria-hidden="true"
         style={{ position: 'absolute', width: 520, height: 520, left: -92, top: 120, background: 'radial-gradient(98.99% 98.99% at 30% 30%, rgba(0, 127, 255, 0.13) 0%, rgba(0, 127, 255, 0) 62%)', borderRadius: 260, pointerEvents: 'none', zIndex: 1 }}
       />
-      <div className="w-full max-w-275 mx-auto px-5 md:px-6 flex flex-col items-center text-center relative z-10 mb-10 md:mb-16">
-        <h2 className="text-primary-foreground text-[32px] sm:text-4xl md:text-[64px] tracking-[-5%] leading-[1.0625] max-w-197 font-heading">
+      <div className="w-full max-w-275 mx-auto px-5 md:px-6 flex flex-col items-center text-center relative z-10 mb-7 md:mb-10">
+        <h2 className="text-primary-foreground text-[26px] leading-[1.12] sm:text-[34px] md:text-[40px] lg:text-[44px] md:leading-[1.08] tracking-[-5%] max-w-197 font-heading">
           Build a predictable sales channel that drives recurring <span className="text-accent-foreground font-bold">revenue</span>
         </h2>
-        <p className="mt-3 md:mt-4 max-w-165 text-sm md:text-base text-[#50607E] font-heading font-normal leading-normal">
+        <p className="mt-2.5 md:mt-3 max-w-165 text-sm md:text-base text-[#50607E] font-heading font-normal leading-normal">
           Answer six quick questions. If we are a fit, you will pick a time with our team on the next screen.
         </p>
       </div>

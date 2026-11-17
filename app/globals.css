@@ -135,32 +135,38 @@
 }
 
 /*
- * ---------- Hero mosaic ----------
- * On ehroo.com the mosaic <img> is bottom-anchored at 98% / 95% / 90% of the hero (mobile / md / lg) and
- * object-cover'ed. Its height there works out to: share × (content above the video + video height + after-video),
- * measured on ehroo.com at 375-1440px. This hero carries extra copy above the video, so the box is sized from the
- * video instead of the section: the mosaic's shape, scale and position relative to the video match ehroo.com.
- *   mobile: content above video 472px, after video 14 + 56 + 48 + 136 = 254px, video = (100cqw - 40px) × 9/16
- *   sm:     content above video 454-483px depending on wrap (468px used)
- *   md:     content above video 813.8px (constant 768-1023px), after video 14px
- *   lg:     content above video 813.8px, after video 14px, video = (min(1200px, 100cqw) - 48px) × 9/16
+ * ---------- Hero video + mosaic ----------
+ * The VSL is sized so the whole frame lands inside the first screen on laptops: its width follows the viewport
+ * height left under the header + headline (~364px), never below 560px, never wider than 1000px or the column.
+ * The ehroo.com mosaic is bottom-anchored to the video and sized from it, so the dots ramp up behind the
+ * video and the blue band sits under its lower half, the same relationship as on ehroo.com.
+ */
+.hero-video-fit { width: 100%; }
+@media (min-width: 768px) {
+  .hero-video-fit { width: min(1000px, 100%, max(560px, (100svh - 404px) * 16 / 9)); }
+}
+/*
+ * Mosaic: ehroo.com's exact <img> box. Height is ehroo.com's own (98% / 95% / 90% of its hero at mobile / md / lg,
+ * measured at 375-1920px and reproduced to 0.2px), so the dots render at the same scale and shape. Its top sits the
+ * same distance from the headline as on ehroo.com (-96 / -92 / -124 / -48 / -38px from the h1 top at
+ * 375 / 640 / 768 / 1024 / 1280+), so the copy stays on clean white and the dots rise at the sides into the video.
+ * The h1 starts 62px (mobile) / 78px (md+) into this hero.
  */
 .hero-mosaic {
-  height: calc(0.98 * (472px + (100cqw - 40px) * 0.5625 + 254px));
-  min-height: 500px;
+  top: calc(62px - 96px);
+  height: max(500px, calc(0.98 * (472px + (100cqw - 40px) * 0.5625 + 254px)));
 }
 @media (min-width: 640px) {
-  .hero-mosaic { height: calc(0.98 * (468px + (100cqw - 40px) * 0.5625 + 254px)); }
+  .hero-mosaic { top: calc(62px - 92px); height: calc(0.98 * (468px + (100cqw - 40px) * 0.5625 + 254px)); }
 }
 @media (min-width: 768px) {
-  .hero-mosaic {
-    height: calc(0.95 * (813.8px + (min(1200px, 100cqw) - 48px) * 0.5625 + 14px));
-  }
+  .hero-mosaic { top: calc(78px - 124px); height: calc(0.95 * (813.8px + (min(1200px, 100cqw) - 48px) * 0.5625 + 14px)); }
 }
 @media (min-width: 1024px) {
-  .hero-mosaic {
-    height: calc(0.9 * (813.8px + (min(1200px, 100cqw) - 48px) * 0.5625 + 14px));
-  }
+  .hero-mosaic { top: calc(78px - 48px); height: calc(0.9 * (813.8px + (min(1200px, 100cqw) - 48px) * 0.5625 + 14px)); }
+}
+@media (min-width: 1280px) {
+  .hero-mosaic { top: calc(78px - 38px); }
 }
 
 /* ---------- Figma import mode (?figma): no motion, no hidden states ---------- */

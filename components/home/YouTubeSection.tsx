@@ -5,11 +5,11 @@ import { YOUTUBE_CHANNEL_URL } from '@/lib/site';
  *  screenshot sits in the same blue-offset frame as the hero mockup. */
 export default function YouTubeSection() {
   return (
-    <section id="youtube" className="w-full py-8 md:py-26 bg-white overflow-hidden">
+    <section id="youtube" className="w-full py-10 md:py-16 lg:py-20 bg-white overflow-hidden">
       <div className="max-w-360 mx-auto px-6">
-        <div className="max-w-294.5 mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-12 mb-8 md:mb-16">
+        <div className="max-w-294.5 mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-12 mb-8 md:mb-10">
           <div className="max-w-160">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-heading text-primary-foreground leading-[1.2] md:leading-14 tracking-[-5%]">
+            <h2 className="text-[26px] leading-[1.12] sm:text-[34px] md:text-[40px] lg:text-[44px] md:leading-[1.08] font-heading text-primary-foreground tracking-[-5%]">
               Watch the free <span className="text-accent-foreground font-bold">YouTube case studies</span>
             </h2>
           </div>
@@ -32,7 +32,7 @@ export default function YouTubeSection() {
           href={YOUTUBE_CHANNEL_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="block relative max-w-250 mx-auto aspect-[2260/1380] mb-3.5 group"
+          className="block relative max-w-220 mx-auto aspect-[2260/1380] mb-3.5 group"
           aria-label="Drishti on YouTube: case studies and growth breakdowns"
         >
           <span className="absolute left-1 top-1 -right-1 -bottom-1 md:left-3.5 md:top-3.5 md:-right-3.5 md:-bottom-3.5 bg-[#005AE2] rounded-[24px] md:rounded-[42px]" />
