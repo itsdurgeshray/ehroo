@@ -1,5 +1,6 @@
 import { ImageIcon, PlayCircle } from 'lucide-react';
 import HeroVideo from './HeroVideo';
+import PricingImage from './PricingImage';
 import { btnPrimary } from '@/components/ui/button';
 import { PRICING_IMAGE, PRICING_YOUTUBE_ID } from '@/lib/site';
 
@@ -51,19 +52,19 @@ export default function Pricing() {
         </div>
         <div className="max-w-294.5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 pr-1 md:pr-2.5">
           {PRICING_YOUTUBE_ID ? (
-            <HeroVideo videoId={PRICING_YOUTUBE_ID} poster={`https://i.ytimg.com/vi/${PRICING_YOUTUBE_ID}/maxresdefault.jpg`} alt="Ehroo pricing, strategy and how we work" />
+            <HeroVideo videoId={PRICING_YOUTUBE_ID} poster={PRICING_YOUTUBE_ID === 'sM8C5jHR9JI' ? '/img/video/sM8C5jHR9JI.jpg' : `https://i.ytimg.com/vi/${PRICING_YOUTUBE_ID}/hqdefault.jpg`} alt="Ehroo pricing, strategy and how we work" />
           ) : (
             <Frame>
               <Placeholder Icon={PlayCircle} title="Pricing walkthrough video" note="Coming soon" />
             </Frame>
           )}
-          <Frame>
-            {PRICING_IMAGE ? (
-              <img src={PRICING_IMAGE} alt="Ehroo pricing breakdown" className="w-full h-full object-cover object-top" />
-            ) : (
+          {PRICING_IMAGE ? (
+            <PricingImage src={PRICING_IMAGE} />
+          ) : (
+            <Frame>
               <Placeholder Icon={ImageIcon} title="Pricing breakdown" note="Coming soon" />
-            )}
-          </Frame>
+            </Frame>
+          )}
         </div>
       </div>
     </section>

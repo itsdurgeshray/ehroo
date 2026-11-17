@@ -4,11 +4,11 @@ import { useState } from 'react';
 import { TESTIMONIALS, type Testimonial } from '@/lib/content';
 import { Slider, SliderTrack, SliderSlide, SliderButton, ArrowLeft, ArrowRight, NAV_BTN, useSliderOptional } from '@/components/ui/Slider';
 import { ytEmbed } from '@/lib/site';
-import { YtPlayIcon } from '@/components/ui/YtPlay';
 
 /** One ehroo.com testimonial card: the video plays inside the card and the avatar circle fades out. */
 function Card({ t }: { t: Testimonial }) {
   const [playing, setPlaying] = useState(false);
+  const [hover, setHover] = useState(false);
   const slider = useSliderOptional();
 
   return (
@@ -60,10 +60,31 @@ function Card({ t }: { t: Testimonial }) {
                 setPlaying(true);
                 slider?.setAutoplayPaused(true);
               }}
-              aria-label="Play testimonial video on YouTube"
-              className="flex items-center justify-center cursor-pointer outline-none group/play"
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+              onFocus={() => setHover(true)}
+              onBlur={() => setHover(false)}
+              aria-label="Play testimonial video"
+              style={{
+                width: '56px',
+                height: '57px',
+                borderRadius: '100.76px',
+                border: '1.68px solid #011324',
+                backgroundColor: 'var(--primary, #D4EC31)',
+                opacity: 0.8,
+                boxShadow: hover ? '0px 40.3px 174.65px 0px #E3F0FE, 3.36px 3.36px 0px 0px #000000' : '0px 40.3px 174.65px 0px #E3F0FE, 6.72px 6.72px 0px 0px #000000',
+                transform: hover ? 'scale(1.05) translate(1.68px, 1.68px)' : 'scale(1) translate(0, 0)',
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                outline: 'none',
+              }}
             >
-              <YtPlayIcon className="w-12 md:w-15 transition-transform duration-200 group-hover/play:scale-110 group-focus-visible/play:scale-110" />
+              <svg className="w-5 h-5 text-[#011324] fill-current translate-x-0.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
             </button>
           </div>
         )}

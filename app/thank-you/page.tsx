@@ -4,7 +4,7 @@ import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import CtaCard from '@/components/ui/CtaCard';
 import ApplicationDetails from '@/components/thank-you/ApplicationDetails';
-import { btnPrimary, btnFooter } from "@/components/ui/button";
+import { btnPrimary } from "@/components/ui/button";
 import { BOOKING_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -132,7 +132,7 @@ export default function ThankYou() {
           </div>
         </CtaCard>
       </main>
-      <Footer ctaHref={BOOKING_URL} ctaLabel="Book Your Strategy Call" btnClass={btnFooter} />
+      <Footer />
     </>
   );
 }

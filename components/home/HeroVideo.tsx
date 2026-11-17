@@ -8,7 +8,7 @@ import { YtPlayIcon, YtBadge } from '@/components/ui/YtPlay';
  * ehroo.com hero mockup: blue offset layer + rounded frame + press-style play button.
  * The play control is YouTube's own button. Clicking swaps the poster for the YouTube embed in place, exactly as ehroo.com does.
  */
-export default function HeroVideo({ videoId, poster, alt }: { videoId: string; poster: string; alt: string }) {
+export default function HeroVideo({ videoId, poster, alt, onPlay }: { videoId: string; poster: string; alt: string; onPlay?: () => void }) {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -30,7 +30,10 @@ export default function HeroVideo({ videoId, poster, alt }: { videoId: string; p
             <img src={poster} alt={alt} width={1920} height={1080} className="w-full h-full object-cover transition-opacity" />
             <button
               type="button"
-              onClick={() => setPlaying(true)}
+              onClick={() => {
+                setPlaying(true);
+                onPlay?.();
+              }}
               className="absolute inset-0 z-20 flex items-center justify-center cursor-pointer bg-black/0 hover:bg-black/10 transition-colors focus-visible:outline-none group/play"
               aria-label="Play video on YouTube"
             >

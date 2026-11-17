@@ -1,7 +1,6 @@
 import { Search, Megaphone, Infinity as Loop } from 'lucide-react';
-import HeroVideo from './HeroVideo';
+import HeroCarousel from './HeroCarousel';
 import { btnPrimary, btnSecondary, heroBtnExtra } from '@/components/ui/button';
-import { VSL_YOUTUBE_ID } from '@/lib/site';
 
 const OFFERINGS = [
   {
@@ -41,7 +40,7 @@ const OFFERINGS = [
 ];
 
 /**
- * Section 1. Headline, then the VSL sized so the whole video sits inside the first screen (.hero-video-fit),
+ * Section 1. Headline, then the video carousel sized so the active video sits inside the first screen (.hero-carousel),
  * then the CTAs and the three offerings. The mosaic is ehroo.com's exact box, placed from the headline (.hero-mosaic).
  */
 export default function Hero() {
@@ -74,20 +73,14 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* VSL, sized to fit the first screen (globals.css .hero-video-fit) */}
-      <div className="relative mt-5 md:mt-7 px-5 md:px-6">
-        <div className="hero-video-fit relative mx-auto">
-          <div className="relative z-20">
-            <HeroVideo
-              videoId={VSL_YOUTUBE_ID}
-              poster="/img/video/hero-mockup.webp"
-              alt="Drishti Kanoi explains how Ehroo builds a predictable full-funnel growth engine"
-            />
-          </div>
-        </div>
-        <div className="relative z-20 pt-5 md:pt-7 mx-auto w-full max-w-100 md:max-w-none grid grid-cols-2 gap-3 md:flex md:justify-center md:gap-5">
-          <a href="#youtube" data-slot="button" className={`${btnSecondary} ${heroBtnExtra}`}>
-            <span>Watch case studies</span>
+      {/* Video carousel: full-bleed track, active slide sized to fit the first screen (globals.css .hero-carousel) */}
+      <div className="relative z-20 mt-5 md:mt-7">
+        <HeroCarousel />
+      </div>
+      <div className="relative px-5 md:px-6">
+        <div className="relative z-20 pt-4 md:pt-5 md:pt-7 mx-auto w-full max-w-100 md:max-w-none grid grid-cols-2 gap-3 md:flex md:justify-center md:gap-5">
+          <a href="#pricing" data-slot="button" className={`${btnSecondary} ${heroBtnExtra}`}>
+            <span>See our pricing</span>
           </a>
           <a href="#qualify" data-slot="button" className={`${btnPrimary} ${heroBtnExtra}`}>
             <span>See if you qualify</span>

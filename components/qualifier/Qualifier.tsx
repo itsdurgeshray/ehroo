@@ -24,11 +24,7 @@ const STEP_LABEL: Record<Exclude<Phase, 'reject'>, string> = {
   details: 'STEP 2 OF 3 · BASIC DETAILS',
   verify: 'STEP 3 OF 3 · VERIFY & FINISH',
 };
-const BARS: Record<Exclude<Phase, 'reject'>, string[]> = {
-  questions: ['bg-[#E1FF3B]', 'bg-slate-200', 'bg-slate-200'],
-  details: ['bg-accent-foreground', 'bg-[#E1FF3B]', 'bg-slate-200'],
-  verify: ['bg-accent-foreground', 'bg-accent-foreground', 'bg-[#E1FF3B]'],
-};
+const STEP_INDEX: Record<Exclude<Phase, 'reject'>, number> = { questions: 0, details: 1, verify: 2 };
 
 const H2 = 'text-[21px] md:text-[26px] font-heading font-semibold text-foreground leading-tight tracking-[-0.01em] mb-4 md:mb-5';
 const INPUT =
@@ -263,6 +259,17 @@ export default function Qualifier() {
   }
 
   const stepPhase = phase === 'reject' ? 'questions' : phase;
+  // Each segment fills as its step progresses: answered questions, then filled details, then verify + company.
+  const share = (n: number, of: number) => Math.min(1, n / of);
+  const answered = QUESTIONS.filter((x) => answers[x.id]).length;
+  const detailsDone = [name.trim(), EMAIL_RE.test(email.trim()), isValidPhone(cc, phone)].filter(Boolean).length;
+  const verifyDone = [token, company.trim(), website.trim()].filter(Boolean).length;
+  const fills: [number, number, number] =
+    stepPhase === 'questions'
+      ? [Math.max(0.04, share(answered, QUESTIONS.length)), 0, 0]
+      : stepPhase === 'details'
+        ? [1, Math.max(0.04, share(detailsDone, 3)), 0]
+        : [1, 1, Math.max(0.04, share(verifyDone, 3))];
   const rejectQ = QUESTIONS.find((x) => x.id === rejectedBy);
 
   return (
@@ -278,9 +285,21 @@ export default function Qualifier() {
         <span className="text-[11px] md:text-xs font-heading font-medium text-secondary-foreground/70 tracking-wider block mb-2.5 uppercase">
           {STEP_LABEL[stepPhase]}
         </span>
-        <div className="grid grid-cols-3 gap-2" aria-hidden="true">
-          {BARS[stepPhase].map((c, i) => (
-            <div key={i} className={`h-2 rounded transition-all duration-300 ${c}`} />
+        <div
+          className="grid grid-cols-3 gap-2"
+          role="progressbar"
+          aria-label="Application progress"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(((fills[0] + fills[1] + fills[2]) / 3) * 100)}
+        >
+          {fills.map((f, i) => (
+            <div key={i} className="h-2 rounded bg-slate-200 overflow-hidden">
+              <div
+                className={`h-full rounded transition-[width,background-color] duration-500 ease-out ${f >= 1 && i < STEP_INDEX[stepPhase] ? 'bg-accent-foreground' : 'bg-[#C8E600]'}`}
+                style={{ width: `${f * 100}%` }}
+              />
+            </div>
           ))}
         </div>
       </div>

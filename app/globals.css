@@ -102,7 +102,8 @@
     font-family: var(--font-heading);
   }
   /* CTAs jump to the qualifier; leave room for the floating header */
-  #qualify { scroll-margin-top: 24px; }
+  html { scroll-behavior: smooth; }
+  #qualify, #pricing { scroll-margin-top: 24px; }
 }
 
 @utility scrollbar-none {
@@ -141,10 +142,24 @@
  * The ehroo.com mosaic is bottom-anchored to the video and sized from it, so the dots ramp up behind the
  * video and the blue band sits under its lower half, the same relationship as on ehroo.com.
  */
-.hero-video-fit { width: 100%; }
+/*
+ * Hero carousel: the active slide is the VSL frame, sized so it fits the first screen on laptops (viewport height
+ * left under header + headline + dots ~440px, never below 560px or above 1000px). Neighbours peek in at the sides;
+ * on phones the slide leaves 28px each side so the next video shows it can be swiped.
+ */
+.hero-carousel { --slide-w: calc(100cqw - 56px); --gap: 12px; }
 @media (min-width: 768px) {
-  .hero-video-fit { width: min(1000px, 100%, max(560px, (100svh - 404px) * 16 / 9)); }
+  .hero-carousel { --slide-w: min(1000px, 100cqw - 200px, max(560px, (100svh - 420px) * 16 / 9)); --gap: 40px; }
 }
+.hero-carousel .hero-track {
+  gap: var(--gap);
+  padding-inline: calc((100cqw - var(--slide-w)) / 2);
+  scroll-padding-inline: calc((100cqw - var(--slide-w)) / 2);
+}
+.hero-carousel .hero-slide { width: var(--slide-w); }
+.hero-carousel .hero-arrow-prev { left: calc(50% - var(--slide-w) / 2 - 76px); }
+.hero-carousel .hero-arrow-next { right: calc(50% - var(--slide-w) / 2 - 76px); }
+
 /*
  * Mosaic: ehroo.com's exact <img> box. Height is ehroo.com's own (98% / 95% / 90% of its hero at mobile / md / lg,
  * measured at 375-1920px and reproduced to 0.2px), so the dots render at the same scale and shape. Its top sits the
