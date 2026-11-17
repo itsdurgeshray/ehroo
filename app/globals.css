@@ -1,0 +1,189 @@
+/*
+ * Theme mirrors ehroo.com exactly: Tailwind v4 + shadcn tokens + tw-animate-css + Fontsource variable fonts.
+ * Values below are copied from ehroo.com's compiled stylesheet (Layout.*.css), so the same utility classes
+ * render the same pixels here as they do on ehroo.com.
+ */
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/inter-tight';
+@import '@fontsource-variable/inter';
+
+@theme inline {
+  --font-sans: 'Inter Tight Variable', sans-serif;
+  --font-heading: 'Bricolage Grotesque Variable', sans-serif;
+  --font-inter: 'Inter Variable', sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translate(0); }
+  to { transform: translate(-50%); }
+}
+
+:root {
+  --background: oklch(100% 0 0);
+  --foreground: oklch(18.11% 0.0442 246.44);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(14.5% 0 0);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(14.5% 0 0);
+  --primary: oklch(94.79% 0.2068 117.81);
+  --primary-foreground: oklch(28.61% 0.1195 261.19);
+  --secondary: oklch(97% 0 0);
+  --secondary-foreground: oklch(25.75% 0.0787 254.23);
+  --muted: oklch(97% 0 0);
+  --muted-foreground: oklch(34.39% 0.015 264.36);
+  --accent: oklch(97% 0 0);
+  --accent-foreground: oklch(51.38% 0.2161 261.96);
+  --destructive: oklch(57.7% 0.245 27.325);
+  --border: oklch(51.38% 0.2161 261.96);
+  --input: oklch(92.2% 0 0);
+  --ring: oklch(51.38% 0.2161 261.96);
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: var(--ring);
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    * { outline-color: color-mix(in oklab, var(--ring) 50%, transparent); }
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+  a[data-slot='button'] {
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    display: inline-flex;
+  }
+  html {
+    font-family: 'Bricolage Grotesque Variable', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  /* CTAs jump to the qualifier; leave room for the floating header */
+  #qualify { scroll-margin-top: 24px; }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* ---------- Hero play button (ehroo.com SectionRenderer.css) ---------- */
+.hero-play-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+.hero-play-btn svg { width: 100%; height: 100%; }
+.press-main { transition: transform 0.15s ease; }
+.press-icon { transform: translate(37px, 34px); transition: transform 0.15s ease; }
+.hero-play-btn:hover .press-main { transform: translate(3px, 3px); }
+.hero-play-btn:hover .press-icon { transform: translate(40px, 37px); }
+.hero-play-btn:active .press-main { transform: translate(6px, 6px); }
+.hero-play-btn:active .press-icon { transform: translate(43px, 40px); }
+@media (min-width: 768px) {
+  .hero-play-btn { width: 94px; height: 94px; }
+}
+
+/*
+ * ---------- Hero mosaic ----------
+ * On ehroo.com the mosaic <img> is bottom-anchored at 98% / 95% / 90% of the hero (mobile / md / lg) and
+ * object-cover'ed. Its height there works out to: share × (content above the video + video height + after-video),
+ * measured on ehroo.com at 375-1440px. This hero carries extra copy above the video, so the box is sized from the
+ * video instead of the section: the mosaic's shape, scale and position relative to the video match ehroo.com.
+ *   mobile: content above video 472px, after video 14 + 56 + 48 + 136 = 254px, video = (100cqw - 40px) × 9/16
+ *   sm:     content above video 454-483px depending on wrap (468px used)
+ *   md:     content above video 813.8px (constant 768-1023px), after video 14px
+ *   lg:     content above video 813.8px, after video 14px, video = (min(1200px, 100cqw) - 48px) × 9/16
+ */
+.hero-mosaic {
+  height: calc(0.98 * (472px + (100cqw - 40px) * 0.5625 + 254px));
+  min-height: 500px;
+}
+@media (min-width: 640px) {
+  .hero-mosaic { height: calc(0.98 * (468px + (100cqw - 40px) * 0.5625 + 254px)); }
+}
+@media (min-width: 768px) {
+  .hero-mosaic {
+    height: calc(0.95 * (813.8px + (min(1200px, 100cqw) - 48px) * 0.5625 + 14px));
+  }
+}
+@media (min-width: 1024px) {
+  .hero-mosaic {
+    height: calc(0.9 * (813.8px + (min(1200px, 100cqw) - 48px) * 0.5625 + 14px));
+  }
+}
+
+/* ---------- Figma import mode (?figma): no motion, no hidden states ---------- */
+.figma .animate-marquee { animation: none; }
+.figma header.sticky { position: relative; }
+
+/*
+ * ---------- Carousel tracks (ehroo.com ShowcaseContent / TestimonialsContent) ----------
+ * ehroo.com switches these paddings in JS after hydration; media queries give the same final values from first paint.
+ */
+.track-cases {
+  --pad: calc((100vw - min(572px, 100vw - 48px)) / 2);
+  padding-left: var(--pad); padding-right: var(--pad);
+  scroll-padding-left: var(--pad); scroll-padding-right: var(--pad);
+}
+@media (min-width: 1224px) {
+  .track-cases { --pad: calc((min(100vw, 1920px) - 1184px) / 2); }
+}
+.track-testimonials {
+  --pad: calc((100vw - min(972px, 100vw - 40px)) / 2);
+  padding-left: var(--pad); padding-right: var(--pad);
+  scroll-padding-left: var(--pad); scroll-padding-right: var(--pad);
+}
+@media (min-width: 768px) {
+  .track-testimonials { --pad: calc((min(100vw, 1920px) - 696px) / 2); }
+}
